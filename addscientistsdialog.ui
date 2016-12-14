@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddScientistsDialog</class>
+ <widget class="QDialog" name="AddScientistsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label_Name">
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_Scientist_Name"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_Gender">
+     <property name="text">
+      <string>Gender</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_scientist_Gender"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_bYear">
+     <property name="text">
+      <string>Birth Year</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_Scientist_bYear"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_dYear">
+     <property name="text">
+      <string>Death Year</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_Scientist_dYear"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_Nation">
+     <property name="text">
+      <string>Nationality</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_Scientist_Nation"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="button_add_Scientist_dialog">
+       <property name="text">
+        <string>Add Scientist</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="button_cancel_Scientist_dialog">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
