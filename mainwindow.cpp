@@ -213,4 +213,7 @@ void MainWindow::on_button_edit_scientist_clicked()
 {
     editScientist EditScientist;
     EditScientist.exec();
+    displayStudents();
 }
+
+

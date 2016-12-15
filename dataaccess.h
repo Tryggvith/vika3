@@ -20,8 +20,9 @@ public:
     void addRelations(int sId, int cId);
     void removeJoin(int id);
 
-    void updateScientist(string input, string name, string id);
-    void updateComputer(string input, string name, string id);
+    void updateScientist(QString name, QString gender, QString bYear, QString dYear, QString nation, QString id);
+    void updateComputer(string input, string id);
+    vector<Performer> updateTable();
 
     vector<RelationsID> viewJoin();
     vector<Relations> joinScientists(string CS, int id);
