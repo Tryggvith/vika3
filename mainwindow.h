@@ -63,11 +63,16 @@ private slots:
 
     void displayComputersJoin(string id);
 
+    void on_table_View_join_Connections_clicked(const QModelIndex &index);
+
+    void on_button_remove_connection_clicked();
+
 private:
     Ui::MainWindow *ui;
     PerformerService _service;
     vector<Performer> currentlyDisplayedScientists;
     vector<computers> currentlyDisplayedComputers;
+    vector<RelationsID> currentlyDisplayedConnections;
     //editScientist _edit;
 };
 

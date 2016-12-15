@@ -211,7 +211,7 @@
           <item>
            <widget class="QTabWidget" name="tabWidget_2">
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="Scientists_Computer">
              <attribute name="title">
@@ -296,6 +296,27 @@
                  </property>
                 </column>
                </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QPushButton" name="button_add_connection">
+                  <property name="text">
+                   <string>Add Scientists</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="button_remove_connection">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Remove Connection</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>

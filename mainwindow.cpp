@@ -23,10 +23,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_3->addItem("DESC");
 
     _service.openFiles();
+    string id = " ";
+    displayScientistsJoin(id);
+    displayComputersJoin(id);
     displayAllJoin();
     displayStudents();
     displayComputers();
-    void displayComputersJoin(string id);
 }
 
 MainWindow::~MainWindow()
@@ -175,6 +177,7 @@ void MainWindow::displayAllJoin()
         ui->table_View_join_Connections->setItem(row, 1, new QTableWidgetItem(sName));
         ui->table_View_join_Connections->setItem(row, 2, new QTableWidgetItem(cName));
     }
+    currentlyDisplayedConnections = pf;
 }
 
 void MainWindow::on_table_computers_clicked(const QModelIndex &index)
@@ -272,4 +275,20 @@ void MainWindow::displayComputersJoin(string id)
         ui->table_Computer_Scientists->setItem(row, 1, new QTableWidgetItem(sName));
         ui->table_Computer_Scientists->setItem(row, 0, new QTableWidgetItem(cName));
     }
+}
+
+void MainWindow::on_table_View_join_Connections_clicked(const QModelIndex &index)
+{
+    ui->button_remove_connection->setEnabled(true);
+}
+
+void MainWindow::on_button_remove_connection_clicked()
+{
+    int currentlySelectedConnectionIndex = ui->table_View_join_Connections->currentIndex().row();
+
+    RelationsID currentlySelectedConnection = currentlyDisplayedConnections[currentlySelectedConnectionIndex];
+
+    int id = currentlySelectedConnection.get_id();
+    _service.removeJoin(id);
+    displayAllJoin();
 }
