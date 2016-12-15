@@ -43,8 +43,6 @@ private slots:
 
     void on_button_remove_scientist_clicked();
 
-    void on_button_View_All_Connections_clicked();
-
     void displayAllJoin();
 
     void on_table_computers_clicked(const QModelIndex &index);
@@ -56,6 +54,12 @@ private slots:
     void on_button_edit_scientist_clicked();
 
     void on_button_Edit_Computer_clicked();
+
+    void displayScientistsJoin(string id);
+
+    void on_Input_Computer_id_textChanged(const QString &arg1);
+
+    void on_input_Scientists_id_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

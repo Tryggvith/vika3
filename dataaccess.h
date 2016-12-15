@@ -25,7 +25,7 @@ public:
     vector<Performer> updateTable();
 
     vector<RelationsID> viewJoin();
-    vector<Relations> joinScientists(string CS, int id);
+    vector<Relations> joinScientists(string CS, string id);
     DataAccess();
     vector<Performer> searchScientist(QString name);
     vector<computers> searchComputer(QString name);

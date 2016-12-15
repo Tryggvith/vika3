@@ -156,11 +156,10 @@ vector<computers> DataAccess::sortCpu(string input, string input2, string input3
      return display;
  }
 
-vector<Relations> DataAccess::joinScientists(string CS, int id)
+vector<Relations> DataAccess::joinScientists(string CS, string id)
 {
     vector<Relations> join;
-    string s = std::to_string(id);
-    string str =  "SELECT S.name, C.name From \"Scientists\" S Join relations R on R.Sid = S.id Join Computers C on R.cid = C.id WHERE " + CS + " = " + s;
+    string str =  "SELECT S.name, C.name From \"Scientists\" S Join relations R on R.Sid = S.id Join Computers C on R.cid = C.id WHERE " + CS + " LIKE \"%" + id + "%\"";
     QString qstr = QString::fromStdString(str);
     QSqlQuery query;
     query.exec(qstr);

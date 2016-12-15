@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_3->addItem("DESC");
 
     _service.openFiles();
+    displayAllJoin();
     displayStudents();
     displayComputers();
 }
@@ -92,38 +93,44 @@ void MainWindow::on_combobox_filter_students_activated()
 
 void MainWindow::on_comboBox_2_activated(const QString &arg1)
 {
+    QVariant a = arg1;
     displayStudents();
 }
 
 void MainWindow::on_input_scientist_search_textChanged(const QString &arg1)
 {
+    QVariant a = arg1;
     displayStudents();
 }
 
 void MainWindow::on_line_input_Computer_name_textChanged(const QString &arg1)
 {
+    QVariant a = arg1;
     displayComputers();
 }
 
 void MainWindow::on_comboBox_filte_Computers_activated(const QString &arg1)
 {
+    QVariant a = arg1;
     displayComputers();
 }
 
 void MainWindow::on_comboBox_3_activated(const QString &arg1)
 {
+    QVariant a = arg1;
     displayComputers();
 }
 
 void MainWindow::on_button_Add_Scientists_clicked()
 {
     AddScientistsDialog addScientistsDialog;
-    int addScientistsReturnValue = addScientistsDialog.exec();
+    addScientistsDialog.exec();
     displayStudents();
 }
 
 void MainWindow::on_table_Students_clicked(const QModelIndex &index)
 {
+    QVariant a = index;
     ui->button_remove_scientist->setEnabled(true);
     ui->button_edit_scientist->setEnabled(true);
 }
@@ -153,14 +160,9 @@ void MainWindow::on_button_remove_scientist_clicked()
 
 void MainWindow::displayAllJoin()
 {
-
-}
-
-void MainWindow::on_button_View_All_Connections_clicked()
-{
     vector<RelationsID> pf = _service.viewJoin();
-    ui->table_join_view->clearContents();
-    ui->table_join_view->setRowCount(pf.size());
+    ui->table_View_join_Connections->clearContents();
+    ui->table_View_join_Connections->setRowCount(pf.size());
     for(unsigned int row = 0; row < pf.size(); row++)
     {
         RelationsID currentJoin = pf[row];
@@ -168,14 +170,15 @@ void MainWindow::on_button_View_All_Connections_clicked()
         QString cName = currentJoin.get_cName();
         QString sName = currentJoin.get_SName();
 
-        ui->table_join_view->setItem(row, 0, new QTableWidgetItem(id));
-        ui->table_join_view->setItem(row, 1, new QTableWidgetItem(sName));
-        ui->table_join_view->setItem(row, 2, new QTableWidgetItem(cName));
+        ui->table_View_join_Connections->setItem(row, 0, new QTableWidgetItem(id));
+        ui->table_View_join_Connections->setItem(row, 1, new QTableWidgetItem(sName));
+        ui->table_View_join_Connections->setItem(row, 2, new QTableWidgetItem(cName));
     }
 }
 
 void MainWindow::on_table_computers_clicked(const QModelIndex &index)
 {
+    QVariant a = index;
      ui->button_delete_computer->setEnabled(true);
 }
 
@@ -219,4 +222,36 @@ void MainWindow::on_button_edit_scientist_clicked()
 void MainWindow::on_button_Edit_Computer_clicked()
 {
 
+}
+
+void MainWindow::displayScientistsJoin(string id)
+{
+    string CS = "s.name";
+    vector<Relations> pf = _service.startJoin(CS, id);
+    ui->table_Scientists_Computer->clearContents();
+    ui->table_Scientists_Computer->setRowCount(pf.size());
+    for(unsigned int row = 0; row < pf.size(); row++)
+    {
+        Relations currentJoin = pf[row];
+        QString cName = currentJoin.getCName();
+        QString sName = currentJoin.getSName();
+
+        ui->table_Scientists_Computer->setItem(row, 0, new QTableWidgetItem(sName));
+        ui->table_Scientists_Computer->setItem(row, 1, new QTableWidgetItem(cName));
+    }
+
+}
+
+void MainWindow::on_Input_Computer_id_textChanged(const QString &arg1)
+{
+    QVariant a = arg1;
+    string id = ui->input_Scientists_id->text().toStdString();
+    displayScientistsJoin(id);
+}
+
+void MainWindow::on_input_Scientists_id_textChanged(const QString &arg1)
+{
+    QVariant a = arg1;
+    string id = ui->input_Scientists_id->text().toStdString();
+    displayScientistsJoin(id);
 }

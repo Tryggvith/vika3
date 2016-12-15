@@ -47,7 +47,7 @@ void PerformerService::openFiles()
     _data.openSqlFiles();
 }
 
-vector<Relations> PerformerService::startJoin(string CS,int id)
+vector<Relations> PerformerService::startJoin(string CS, string id)
 {
     vector<Relations> join = _data.joinScientists(CS, id);
     return join;
