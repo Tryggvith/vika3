@@ -6,6 +6,9 @@ AddComputer::AddComputer(QWidget *parent) :
     ui(new Ui::AddComputer)
 {
     ui->setupUi(this);
+
+    ui->comboBox_constr->addItem("Yes");
+    ui->comboBox_constr->addItem("No");
 }
 
 AddComputer::~AddComputer()
@@ -21,18 +24,20 @@ void AddComputer::on_Button_Cancel_Add_clicked()
 void AddComputer::on_Button_Add_Computer_clicked()
 {
     string name = ui->Input_Computer_Type->text().toStdString();
-    string buildy = ui->Input_Computer_Year->text().toStdString();
     string brand = ui->Input_Computer_Model->text().toStdString();
-    string constr = ui->Input_Computer_Yes->text().toStdString();
+    string constr = ui->comboBox_constr->currentText().toStdString();
+    string buildy = ui->Input_Computer_Year->text().toStdString();
+
 
     bool therewasanError = false;
 
-    if(name.empty() || buildy.empty() || brand.empty() || constr.empty())
+    if(name.empty() || brand.empty())
     {
         ui->label_error->setText("<span style='color: red'>No fields can be empty!</span>");
 
         return;
     }
+
 
     int bvalue = atoi(buildy.c_str());
     int bYearLength = buildy.length();
@@ -61,10 +66,4 @@ void AddComputer::on_Button_Add_Computer_clicked()
 
     _service.addComputer(name, buildy, brand, constr);
     this->done(0);
-}
-
-
-void AddComputer::on_Input_Computer_Yes_toggled(bool checked)
-{
-   ui->Input_Computer_Year->setEnabled(true);
 }

@@ -23,7 +23,7 @@ private slots:
 
     void on_Button_Add_Computer_clicked();
 
-    void on_Input_Computer_Yes_toggled(bool checked);
+    void on_comboBox_constr_currentTextChanged(bool checked);
 
 private:
     Ui::AddComputer *ui;
