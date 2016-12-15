@@ -35,6 +35,97 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
         return;
     }
 
+    bool therewasanError = false;
+
+    int namelength = name.length();
+
+    for(int i = 0 ; i < namelength; i++)
+    {
+        if(!(isalpha(name[i])))
+        {
+            ui->label_error_name->setText("<span style='color: red'>Invalid input!</span>");
+
+            therewasanError = true;
+        }
+
+    }
+    if (gender == "male")
+    {
+        gender = "Male";
+    }
+    else if (gender == "female")
+    {
+        gender = "Female";
+    }
+    else
+    {
+        ui->label_error_gender->setText("<span style='color: red'>Invalid input, please enter male or female</span>");
+
+        therewasanError = true;
+
+    }
+
+    int bvalue = atoi(bYear.c_str());
+    int bYearLength = bYear.length();
+
+    for(int i = 0; i < bYearLength; i++)
+    {
+        if(!isdigit(bYear[i]))
+        {
+            ui->label_error_byear->setText("<span style='color: red'>Invalid input!</span>");
+            bYearLength = bYear.length();
+            therewasanError = true;
+        }
+    }
+        if(bvalue < 0 || bvalue > 2016)
+        {
+            ui->label_error_byear->setText("<span style='color: red'>Invalid input!</span>");
+
+            bvalue = atoi(bYear.c_str());
+            therewasanError = true;
+        }
+
+
+    int dvalue = atoi(dYear.c_str());
+    int dYearLength = dYear.length();
+
+    for(int i = 0; i < dYearLength; i++)
+    {
+        if(!isdigit(dYear[i]))
+        {
+            ui->label_error_dyear->setText("<span style='color: red'>Invalid input!</span>");
+            dYearLength = dYear.length();
+            therewasanError = true;
+        }
+    }
+        if(dvalue < 0 || dvalue > 2016)
+        {
+            ui->label_error_dyear->setText("<span style='color: red'>Invalid input!</span>");
+
+            dvalue = atoi(dYear.c_str());
+            therewasanError = true;
+        }
+
+    int nationlength = nation.length();
+
+    for(int i = 0 ; i < nationlength; i++)
+    {
+        if(!(isalpha(nation[i])))
+        {
+            ui->label_error_nation->setText("<span style='color: red'>Invalid input!</span>");
+
+            therewasanError = true;
+        }
+    }
+
+    if(therewasanError)
+    {
+        return;
+    }
+
+
+
+
     _service.addPerformer(name, gender, bYear, dYear, nation);
 
     this->done(0);
