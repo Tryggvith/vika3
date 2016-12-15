@@ -38,18 +38,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QCheckBox" name="Input_Computer_Yes">
-     <property name="text">
-      <string>Yes</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QCheckBox" name="Input_Computer_No">
-     <property name="text">
-      <string>No</string>
-     </property>
-    </widget>
+    <widget class="QComboBox" name="comboBox_constr"/>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -72,7 +61,10 @@
    <item>
     <widget class="QLineEdit" name="Input_Computer_Year">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </item>
