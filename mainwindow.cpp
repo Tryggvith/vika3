@@ -164,7 +164,7 @@ void MainWindow::on_button_View_All_Connections_clicked()
     for(unsigned int row = 0; row < pf.size(); row++)
     {
         RelationsID currentJoin = pf[row];
-        int id = currentJoin.get_id();
+        QString id = QString::number(currentJoin.get_id());
         QString cName = currentJoin.get_cName();
         QString sName = currentJoin.get_SName();
 
@@ -213,5 +213,4 @@ void MainWindow::on_button_edit_scientist_clicked()
 {
     editScientist EditScientist;
     EditScientist.exec();
-
 }

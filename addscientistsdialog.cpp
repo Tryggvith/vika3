@@ -49,11 +49,11 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
         }
 
     }
-    if (gender == "male")
+    if (gender == "male" || gender == "Male")
     {
         gender = "Male";
     }
-    else if (gender == "female")
+    else if (gender == "female" || gender == "Female")
     {
         gender = "Female";
     }
