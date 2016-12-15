@@ -107,17 +107,17 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="label_error_nation">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item>
     <widget class="QLineEdit" name="input_Scientist_Nation"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_error">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer">
