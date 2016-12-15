@@ -24,6 +24,7 @@ public:
 private slots:
     void displayStudents();
     void displayComputers();
+    void display();
 
     void on_combobox_filter_students_activated();
 
@@ -60,6 +61,7 @@ private:
     PerformerService _service;
     vector<Performer> currentlyDisplayedScientists;
     vector<computers> currentlyDisplayedComputers;
+    //editScientist _edit;
 };
 
 #endif // MAINWINDOW_H

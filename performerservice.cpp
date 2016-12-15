@@ -101,11 +101,22 @@ void PerformerService::removeJoin(int id)
 {
     _data.removeJoin(id);
 }
-void PerformerService::updateScientist(string input, string name, string id)
+void PerformerService::updateScientist(string name, string gender, string bYear, string dYear, string nation, string id)
 {
-    _data.updateScientist(input, name, id);
+    QString Qname = QString::fromStdString(name);
+    QString Qgender = QString::fromStdString(gender);
+    QString QbYear = QString::fromStdString(bYear);
+    QString QdYear = QString::fromStdString(dYear);
+    QString Qnation = QString::fromStdString(nation);
+    QString Qid = QString::fromStdString(id);
+    _data.updateScientist(Qname, Qgender, QbYear, QdYear, Qnation, Qid);
 }
-void PerformerService::updateComputer(string input, string name, string id)
+void PerformerService::updateComputer(string input, string id)
 {
-    _data.updateComputer(input, name, id);
+    _data.updateComputer(input, id);
+}
+vector<Performer> PerformerService::updateTableScientist()
+{
+    vector<Performer> pf = _data.updateTable();
+    return pf;
 }
