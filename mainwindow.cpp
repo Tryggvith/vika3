@@ -198,3 +198,12 @@ void MainWindow::on_button_delete_computer_clicked()
         ui->button_remove_scientist->setEnabled(false);
     }
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    AddComputer addcomputer;
+    addcomputer.exec();
+    displayComputers();
+}
+
+
