@@ -25,6 +25,12 @@ void AddComputer::on_Button_Add_Computer_clicked()
     string brand = ui->Input_Computer_Model->text().toStdString();
     string constr = ui->Input_Computer_Yes->text().toStdString();
 
+    if(name.empty() || buildy.empty() || brand.empty() || constr.empty())
+    {
+        ui->label_error->setText("<span style='color: red'>No fields can be empty!</span>");
+
+        return;
+    }
 
     _service.addComputer(name, buildy, brand, constr);
     this->done(0);

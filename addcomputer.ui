@@ -70,6 +70,13 @@
     <widget class="QLineEdit" name="Input_Computer_Model"/>
    </item>
    <item>
+    <widget class="QLabel" name="label_error">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="Button_Add_Computer">
