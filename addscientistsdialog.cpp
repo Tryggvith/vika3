@@ -44,7 +44,7 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
 
     for(int i = 0 ; i < namelength; i++)
     {
-        if(!(isalpha(name[i])))
+         if(!(isalpha(name[i])) && name[i] != ' ')
         {
             ui->label_error_name->setText("<span style='color: red'>Invalid input!</span>");
 

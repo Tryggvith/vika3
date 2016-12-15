@@ -83,6 +83,95 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
     int id = currentlySelectedScientist.getId();
     string sId = to_string(id);
 
+    if(name.empty() ||  bYear.empty() || dYear.empty() || nation.empty())
+    {
+        ui->label_test->setText("<span style='color: red'>No fields can be empty!</span>");
+
+        return;
+    }
+
+    bool therewasanError = false;
+
+    int namelength = name.length();
+
+    for(int i = 0 ; i < namelength; i++)
+    {
+
+        if(!(isalpha(name[i])) && name[i] != ' ')
+        {
+            ui->label_empty_error->setText("<span style='color: red'>Invalid input sfafasfa!</span>");
+
+            therewasanError = true;
+        }
+
+    }
+
+    int bvalue = atoi(bYear.c_str());
+    int bYearLength = bYear.length();
+
+    for(int i = 0; i < bYearLength; i++)
+    {
+        if(!isdigit(bYear[i]))
+        {
+            ui->label_empty_error_2->setText("<span style='color: red'>Invalid input!</span>");
+            bYearLength = bYear.length();
+            therewasanError = true;
+        }
+    }
+        if(bvalue < 0 || bvalue > 2016)
+        {
+            ui->label_empty_error_2->setText("<span style='color: red'>Invalid input!</span>");
+
+            bvalue = atoi(bYear.c_str());
+            therewasanError = true;
+        }
+
+
+    int dvalue = atoi(dYear.c_str());
+    int dYearLength = dYear.length();
+    if(dYear != "--")
+    {
+        for(int i = 0; i < dYearLength; i++)
+        {
+            if(!isdigit(dYear[i]))
+            {
+                ui->label_empty_error_3->setText("<span style='color: red'>Invalid input!</span>");
+                dYearLength = dYear.length();
+                therewasanError = true;
+            }
+        }
+    }
+
+        if(dvalue < 0 || dvalue > 2016)
+        {
+            ui->label_empty_error_3->setText("<span style='color: red'>Invalid input!</span>");
+
+            dvalue = atoi(dYear.c_str());
+            therewasanError = true;
+        }
+
+        if(dvalue < bvalue && dYear != "--") {
+             ui->label_empty_error_3->setText("<span style='color: red'>Death year can not be less than birth year!</span>");
+             therewasanError = true;
+        }
+
+    int nationlength = nation.length();
+
+    for(int i = 0 ; i < nationlength; i++)
+    {
+        if(!(isalpha(nation[i])))
+        {
+            ui->label_empty_error_4->setText("<span style='color: red'>Invalid input!</span>");
+
+            therewasanError = true;
+        }
+    }
+
+    if(therewasanError)
+    {
+        return;
+    }
+
     _service.updateScientist(name, gender, bYear, dYear, nation, sId);
     this->done(0);
 }

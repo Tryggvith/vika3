@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>447</width>
-    <height>430</height>
+    <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,11 +27,22 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="label_Name">
-     <property name="text">
-      <string>Name</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_Name">
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_empty_error">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QLineEdit" name="input_Scientist_Name"/>
@@ -47,31 +58,64 @@
     <widget class="QLineEdit" name="input_Scientist_Gender"/>
    </item>
    <item>
-    <widget class="QLabel" name="label_bYear">
-     <property name="text">
-      <string>Birth Year</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_bYear">
+       <property name="text">
+        <string>Birth Year</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_empty_error_2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QLineEdit" name="input_Scientist_bYear"/>
    </item>
    <item>
-    <widget class="QLabel" name="label_dYear">
-     <property name="text">
-      <string>Death Year</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLabel" name="label_dYear">
+       <property name="text">
+        <string>Death Year</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_empty_error_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QLineEdit" name="input_Scientist_dYear"/>
    </item>
    <item>
-    <widget class="QLabel" name="label_Nation">
-     <property name="text">
-      <string>Nationality</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QLabel" name="label_Nation">
+       <property name="text">
+        <string>Nationality</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_empty_error_4">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QLineEdit" name="input_Scientist_Nation"/>
