@@ -27,16 +27,8 @@ void editScientist::displayUpdateTable()
             Performer currentScientist = pf[row];
 
             QString name = currentScientist.getName();
-            /*QString gender = currentScientist.getGender();
-            QString byear = currentScientist.getbYear();
-            QString dyear = currentScientist.getdYear();
-            QString nationality = currentScientist.getNation();*/
 
             ui->table_update_scientist->setItem(row, 0, new QTableWidgetItem(name));
-            /*ui->table_Students->setItem(row, 1, new QTableWidgetItem(gender));
-            ui->table_Students->setItem(row, 2, new QTableWidgetItem(byear));
-            ui->table_Students->setItem(row, 3, new QTableWidgetItem(dyear));
-            ui->table_Students->setItem(row, 4, new QTableWidgetItem(nationality));*/
         }
         currentlyDisplayedScientists = pf;
     }
@@ -45,6 +37,7 @@ void editScientist::displayUpdateTable()
 
 void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
 {
+    QVariant a = index;
     int currentlySelectedScientistIndex = ui->table_update_scientist->currentIndex().row();
     Performer currentlySelectedScientist = currentlyDisplayedScientists[currentlySelectedScientistIndex];
 

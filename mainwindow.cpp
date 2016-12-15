@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     displayAllJoin();
     displayStudents();
     displayComputers();
+    void displayComputersJoin(string id);
 }
 
 MainWindow::~MainWindow()
@@ -245,8 +246,8 @@ void MainWindow::displayScientistsJoin(string id)
 void MainWindow::on_Input_Computer_id_textChanged(const QString &arg1)
 {
     QVariant a = arg1;
-    string id = ui->input_Scientists_id->text().toStdString();
-    displayScientistsJoin(id);
+    string id = ui->Input_Computer_id->text().toStdString();
+    displayComputersJoin(id);
 }
 
 void MainWindow::on_input_Scientists_id_textChanged(const QString &arg1)
@@ -254,4 +255,21 @@ void MainWindow::on_input_Scientists_id_textChanged(const QString &arg1)
     QVariant a = arg1;
     string id = ui->input_Scientists_id->text().toStdString();
     displayScientistsJoin(id);
+}
+
+void MainWindow::displayComputersJoin(string id)
+{
+    string CS = "C.name";
+    vector<Relations> pf = _service.startJoin(CS, id);
+    ui->table_Computer_Scientists->clearContents();
+    ui->table_Computer_Scientists->setRowCount(pf.size());
+    for(unsigned int row = 0; row < pf.size(); row++)
+    {
+        Relations currentJoin = pf[row];
+        QString cName = currentJoin.getCName();
+        QString sName = currentJoin.getSName();
+
+        ui->table_Computer_Scientists->setItem(row, 1, new QTableWidgetItem(sName));
+        ui->table_Computer_Scientists->setItem(row, 0, new QTableWidgetItem(cName));
+    }
 }

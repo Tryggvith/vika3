@@ -61,6 +61,8 @@ private slots:
 
     void on_input_Scientists_id_textChanged(const QString &arg1);
 
+    void displayComputersJoin(string id);
+
 private:
     Ui::MainWindow *ui;
     PerformerService _service;

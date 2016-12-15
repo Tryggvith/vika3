@@ -211,7 +211,7 @@
           <item>
            <widget class="QTabWidget" name="tabWidget_2">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="Scientists_Computer">
              <attribute name="title">
@@ -252,7 +252,21 @@
                <widget class="QLineEdit" name="Input_Computer_id"/>
               </item>
               <item>
-               <widget class="QTableWidget" name="table_Computer_Scientists"/>
+               <widget class="QTableWidget" name="table_Computer_Scientists">
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <column>
+                 <property name="text">
+                  <string>Computer Name</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Scientists Name</string>
+                 </property>
+                </column>
+               </widget>
               </item>
              </layout>
             </widget>
