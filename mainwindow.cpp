@@ -129,7 +129,7 @@ void MainWindow::on_table_Students_clicked(const QModelIndex &index)
 
 void MainWindow::on_button_remove_scientist_clicked()
 {
-    int reply = QMessageBox::question(this, "do you really want to delete", "do you relayy want to delete");
+    int reply = QMessageBox::question(this, "do you really want to delete", "Are you sure you want to delete the selected scientist?");
 
     if(reply == QMessageBox::Yes)
     {
@@ -140,7 +140,7 @@ void MainWindow::on_button_remove_scientist_clicked()
 
 
         string name = currentlySelectedScientist.getName().toStdString();
-        ui->label_test->setText(currentlySelectedScientist.getName());
+        //ui->label_test->setText(currentlySelectedScientist.getName());
         _service.removeScientist(name);
         displayStudents();
     }
