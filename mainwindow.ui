@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>308</height>
+    <width>580</width>
+    <height>381</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -171,7 +171,10 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="button_delete_computer">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Remove Computer</string>
             </property>
@@ -265,8 +268,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
-     <height>21</height>
+     <width>580</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

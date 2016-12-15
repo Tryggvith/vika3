@@ -82,8 +82,8 @@ void MainWindow::displayComputers()
         ui->table_computers->setItem(row, 3, new QTableWidgetItem(constr));
 
     }
+    currentlyDisplayedComputers = pf;
 }
-
 
 void MainWindow::on_combobox_filter_students_activated()
 {
@@ -170,5 +170,31 @@ void MainWindow::on_button_View_All_Connections_clicked()
         ui->table_join_view->setItem(row, 0, new QTableWidgetItem(id));
         ui->table_join_view->setItem(row, 1, new QTableWidgetItem(sName));
         ui->table_join_view->setItem(row, 2, new QTableWidgetItem(cName));
+    }
+}
+
+void MainWindow::on_table_computers_clicked(const QModelIndex &index)
+{
+     ui->button_delete_computer->setEnabled(true);
+}
+
+void MainWindow::on_button_delete_computer_clicked()
+{
+    int reply = QMessageBox::question(this, "do you really want to delete", "Are you sure you want to delete the selected computer?");
+
+    if(reply == QMessageBox::Yes)
+    {
+        int currentlySelectedComputerIndex = ui->table_computers->currentIndex().row();
+
+        computers currentlySelectedComputer = currentlyDisplayedComputers[currentlySelectedComputerIndex];
+
+        string name = currentlySelectedComputer.getName().toStdString();
+        //ui->label_test->setText(currentlySelectedScientist.getName());
+        _service.removeComputer(name);
+        displayComputers();
+    }
+    else
+    {
+        ui->button_remove_scientist->setEnabled(false);
     }
 }

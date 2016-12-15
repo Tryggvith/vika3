@@ -45,12 +45,15 @@ private slots:
 
     void displayAllJoin();
 
+    void on_table_computers_clicked(const QModelIndex &index);
+
+    void on_button_delete_computer_clicked();
+
 private:
     Ui::MainWindow *ui;
     PerformerService _service;
     vector<Performer> currentlyDisplayedScientists;
-
-
+    vector<computers> currentlyDisplayedComputers;
 };
 
 #endif // MAINWINDOW_H

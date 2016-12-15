@@ -36,10 +36,9 @@ void PerformerService::removeScientist(string name)
     _data.removeDataScientist(name);
 }
 
-string PerformerService::removeComputer(string name) //Skilar til baka streng eftir að hafa eytt einu tilviki
+string PerformerService::removeComputer(string name)
 {
     _data.removeDataComputer(name);
-    return name;
 }
 
 void PerformerService::openFiles()

@@ -83,7 +83,7 @@ void DataAccess::removeDataScientist(string name) //Þetta fall tekur út tölvu
 
 void DataAccess::removeDataComputer(string name)
 {
-    string str =  "DELETE FROM \"Computers\" where name = \"" + name + "\" ";
+    string str =  "DELETE FROM Computers WHERE name = \"" + name + "\"";
     QString qstr = QString::fromStdString(str);
     QSqlQuery query;
     query.exec(qstr);
