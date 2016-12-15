@@ -111,12 +111,22 @@ void PerformerService::updateScientist(string name, string gender, string bYear,
     QString Qid = QString::fromStdString(id);
     _data.updateScientist(Qname, Qgender, QbYear, QdYear, Qnation, Qid);
 }
-void PerformerService::updateComputer(string input, string id)
+void PerformerService::updateComputer(string name, string buildy, string brand, string constr, string id)
 {
-    _data.updateComputer(input, id);
+    QString Qname = QString::fromStdString(name);
+    QString Qbuildy = QString::fromStdString(buildy);
+    QString Qbrand = QString::fromStdString(brand);
+    QString Qconstr = QString::fromStdString(constr);
+    QString Qid = QString::fromStdString(id);
+    _data.updateComputer(Qname, Qbuildy, Qbrand, Qconstr, Qid);
 }
 vector<Performer> PerformerService::updateTableScientist()
 {
     vector<Performer> pf = _data.updateTable();
+    return pf;
+}
+vector<computers> PerformerService::updateTableComputer()
+{
+    vector<computers> pf = _data.updateTableCpu();
     return pf;
 }

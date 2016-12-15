@@ -216,7 +216,9 @@ void MainWindow::on_button_edit_scientist_clicked()
     displayStudents();
 }
 
-void MainWindow::on_button_Edit_Computer_clicked()
+void MainWindow::on_button_edit_computer_clicked()
 {
-
+    editcomputer EditComputer;
+    EditComputer.exec();
+    displayComputers();
 }

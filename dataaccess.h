@@ -21,8 +21,9 @@ public:
     void removeJoin(int id);
 
     void updateScientist(QString name, QString gender, QString bYear, QString dYear, QString nation, QString id);
-    void updateComputer(string input, string id);
+    void updateComputer(QString name, QString buildy, QString brand, QString constr, QString id);
     vector<Performer> updateTable();
+    vector<computers> updateTableCpu();
 
     vector<RelationsID> viewJoin();
     vector<Relations> joinScientists(string CS, int id);
