@@ -213,5 +213,31 @@ void MainWindow::on_button_edit_scientist_clicked()
 {
     editScientist EditScientist;
     EditScientist.exec();
+    displayStudents();
+}
 
+void MainWindow::display()
+{
+    int currentlySelectedScientistIndex = ui->table_Students->currentIndex().row();
+    Performer currentlySelectedScientist = currentlyDisplayedScientists[currentlySelectedScientistIndex];
+
+
+    string name = currentlySelectedScientist.getName().toStdString();
+    string gender = currentlySelectedScientist.getGender().toStdString();
+    string bYear = currentlySelectedScientist.getbYear().toStdString();
+    string dYear = currentlySelectedScientist.getdYear().toStdString();
+    string nation = currentlySelectedScientist.getNation().toStdString();
+
+    QString Qname = QString::fromStdString(name);
+    QString Qgender = QString::fromStdString(gender);
+    QString QdYear = QString::fromStdString(bYear);
+    QString QbYear = QString::fromStdString(dYear);
+    QString Qnation = QString::fromStdString(nation);
+    /*ui->input_Scientist_Name->setText("hello");
+    ui->input_Scientist_Gender->setText(Qgender);
+    ui->input_Scientist_bYear->setText(QbYear);
+    ui->input_Scientist_dYear->setText(QdYear);
+    ui->input_Scientist_Nation->setText(Qnation);
+*/
+    //_edit.display(name, gender, bYear, dYear, nation);
 }
