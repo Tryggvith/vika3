@@ -31,13 +31,12 @@ void AddComputer::on_Button_Add_Computer_clicked()
 
     bool therewasanError = false;
 
-    if(name.empty() || brand.empty())
+    if(name.empty() || brand.empty() || buildy.empty())
     {
         ui->label_error->setText("<span style='color: red'>No fields can be empty!</span>");
 
         return;
     }
-
 
     int bvalue = atoi(buildy.c_str());
     int bYearLength = buildy.length();
