@@ -54,7 +54,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_Gender"/>
+    <widget class="QComboBox" name="comboBox_gender"/>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -118,6 +118,13 @@
    </item>
    <item>
     <widget class="QLineEdit" name="input_Scientist_Nation"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_error">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer">

@@ -10,6 +10,12 @@
     <height>327</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>349</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Add computer</string>
   </property>
@@ -46,11 +52,22 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="Label_Computer_Buildy">
-     <property name="text">
-      <string>Build Year</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="Label_Computer_Buildy">
+       <property name="text">
+        <string>Build Year</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_error_buildy">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QLineEdit" name="Input_Computer_Year">
@@ -68,6 +85,13 @@
    </item>
    <item>
     <widget class="QLineEdit" name="Input_Computer_Model"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_error">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
