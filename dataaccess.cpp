@@ -98,15 +98,12 @@ void DataAccess::openSqlFiles()
         qDebug();
     }
 }
-void DataAccess::addRelations(int sId, int cId)
+void DataAccess::addRelations(QString sId, QString cId)
 {
-    QString QsId = QString::number(sId);
-    QString QcId = QString::number(cId);
-
     QSqlQuery query;
     query.prepare("INSERT INTO \"Relations\" (SID, CID) VALUES (:SID, :CID)");
-        query.bindValue(":SID", QsId);
-        query.bindValue(":CID", QcId);
+        query.bindValue(":SID", sId);
+        query.bindValue(":CID", cId);
 
         query.exec();
 }

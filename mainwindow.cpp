@@ -292,3 +292,10 @@ void MainWindow::on_button_remove_connection_clicked()
     _service.removeJoin(id);
     displayAllJoin();
 }
+
+void MainWindow::on_button_add_connection_clicked()
+{
+    AddConnectionDialog addConnectionDialog;
+    addConnectionDialog.exec();
+    displayAllJoin();
+}

@@ -8,6 +8,7 @@
 #include <QtSql>
 #include "addcomputer.h"
 #include "editscientist.h"
+#include "addconnectiondialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -66,6 +67,8 @@ private slots:
     void on_table_View_join_Connections_clicked(const QModelIndex &index);
 
     void on_button_remove_connection_clicked();
+
+    void on_button_add_connection_clicked();
 
 private:
     Ui::MainWindow *ui;
