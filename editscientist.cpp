@@ -57,8 +57,8 @@ void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
 
     QString Qname = QString::fromStdString(name);
     QString Qgender = QString::fromStdString(gender);
-    QString QdYear = QString::fromStdString(bYear);
-    QString QbYear = QString::fromStdString(dYear);
+    QString QbYear = QString::fromStdString(bYear);
+    QString QdYear = QString::fromStdString(dYear);
     QString Qnation = QString::fromStdString(nation);
 
     ui->input_Scientist_Name->setText("");

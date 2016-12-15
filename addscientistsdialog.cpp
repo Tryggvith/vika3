@@ -50,6 +50,10 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
 
             therewasanError = true;
         }
+         else
+         {
+             ui->label_error_name->setText("<span style='color: red'></span>");
+         }
 
     }
 
