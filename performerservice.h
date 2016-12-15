@@ -25,6 +25,8 @@ public:
     void addComputer(string name, string buildy, string brand, string constr);
     void addRelations(int sId, int cId);
     void removeJoin(int id);
+    void updateScientist(string input, string name, string id);
+    void updateComputer(string input, string name, string id);
     vector<RelationsTable2> viewScientist(int counter);
     vector<computers> sortComputers(string i1, string i2, string i3);
     vector<Performer> sortScientists(string i1, string i2, string i3);

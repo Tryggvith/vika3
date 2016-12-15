@@ -39,6 +39,7 @@ void PerformerService::removeScientist(string name)
 string PerformerService::removeComputer(string name)
 {
     _data.removeDataComputer(name);
+    return name;
 }
 
 void PerformerService::openFiles()
@@ -99,4 +100,12 @@ vector<RelationsTable> PerformerService::readData()
 void PerformerService::removeJoin(int id)
 {
     _data.removeJoin(id);
+}
+void PerformerService::updateScientist(string input, string name, string id)
+{
+    _data.updateScientist(input, name, id);
+}
+void PerformerService::updateComputer(string input, string name, string id)
+{
+    _data.updateComputer(input, name, id);
 }
