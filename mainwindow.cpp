@@ -172,3 +172,11 @@ void MainWindow::on_button_View_All_Connections_clicked()
         ui->table_join_view->setItem(row, 2, new QTableWidgetItem(cName));
     }
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    AddComputer addcomputer;
+    addcomputer.exec();
+    displayComputers();
+}
+

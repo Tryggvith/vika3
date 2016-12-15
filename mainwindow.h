@@ -6,6 +6,7 @@
 #include "dataaccess.h"
 #include "addscientistsdialog.h"
 #include <QtSql>
+#include "addcomputer.h"
 
 namespace Ui {
 class MainWindow;
@@ -44,6 +45,8 @@ private slots:
     void on_button_View_All_Connections_clicked();
 
     void displayAllJoin();
+
+    void on_pushButton_3_clicked();
 
 private:
     Ui::MainWindow *ui;
