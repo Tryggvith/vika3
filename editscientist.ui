@@ -44,7 +44,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_Scientist_Gender"/>
+    <widget class="QComboBox" name="comboBox"/>
    </item>
    <item>
     <widget class="QLabel" name="label_bYear">

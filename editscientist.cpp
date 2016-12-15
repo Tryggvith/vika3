@@ -7,6 +7,8 @@ editScientist::editScientist(QWidget *parent) :
     ui(new Ui::editScientist)
 {
     ui->setupUi(this);
+    ui->comboBox->addItem("Female");
+    ui->comboBox->addItem("Male");
     displayUpdateTable();
 }
 
@@ -61,8 +63,6 @@ void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
 
     ui->input_Scientist_Name->setText("");
     ui->input_Scientist_Name->setText(Qname);
-    ui->input_Scientist_Gender->setText("");
-    ui->input_Scientist_Gender->setText(Qgender);
     ui->input_Scientist_bYear->setText("");
     ui->input_Scientist_bYear->setText(QbYear);
     ui->input_Scientist_dYear->setText("");
@@ -74,7 +74,7 @@ void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
 void editScientist::on_button_edit_scientist_dialog_clicked()
 {
     string name = ui->input_Scientist_Name->text().toStdString();
-    string gender = ui->input_Scientist_Gender->text().toStdString();
+    string gender = ui->comboBox->currentText().toStdString();
     string bYear = ui->input_Scientist_bYear->text().toStdString();
     string dYear = ui->input_Scientist_dYear->text().toStdString();
     string nation = ui->input_Scientist_Nation->text().toStdString();
