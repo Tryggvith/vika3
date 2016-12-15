@@ -54,7 +54,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_Gender"/>
+    <widget class="QComboBox" name="comboBox_gender"/>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
