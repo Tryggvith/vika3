@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>308</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Scientists">
        <attribute name="title">
@@ -94,7 +94,7 @@
              <bool>true</bool>
             </property>
             <property name="text">
-             <string>Add Scientist</string>
+             <string>Add new scientist</string>
             </property>
            </widget>
           </item>
@@ -104,7 +104,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Remove Scientist</string>
+             <string>Remove selected</string>
             </property>
            </widget>
           </item>
@@ -266,7 +266,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
