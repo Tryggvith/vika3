@@ -331,18 +331,46 @@ vector<Performer> DataAccess::displayScientists()
     return newVector;
 }
 
-void DataAccess::updateScientist(string input, string name, string id)
+void DataAccess::updateScientist(QString name, QString gender, QString bYear, QString dYear, QString nation, QString id)
 {
-    string str = "UPDATE FROM Scientists SET " + input + " = \"" + name + "\" WHERE id = " + id;
+    QSqlQuery query;
+    query.prepare("UPDATE Scientists SET name=:name, gender=:gender, bYear=:bYear, dYear=:dYear, nation=:nation WHERE id=:id ");
+    query.bindValue(":name", name);
+    query.bindValue(":gender", gender);
+    query.bindValue(":bYear", bYear);
+    query.bindValue(":dYear", dYear);
+    query.bindValue(":nation", nation);
+    query.bindValue(":id", id);
+    query.exec();
+}
+
+void DataAccess::updateComputer(string input, string id)
+{
+    string str = "UPDATE FROM Computers SET " + input + " WHERE id = " + id;
     QString qstr = QString::fromStdString(str);
     QSqlQuery query;
     query.exec(qstr);
 }
 
-void DataAccess::updateComputer(string input, string name, string id)
+vector<Performer> DataAccess::updateTable()
 {
-    string str = "UPDATE FROM Computers SET " + input + " = \"" + name + "\" WHERE id = " + id;
+    vector<Performer> sort;
+    string str = "SELECT * FROM Scientists";
     QString qstr = QString::fromStdString(str);
     QSqlQuery query;
     query.exec(qstr);
+    while (query.next())
+    {
+        int id = query.value(0).toInt();
+        QString name = query.value(1).toString();
+        QString gender = query.value(2).toString();
+        QString bYear = query.value(3).toString();
+        QString dYear = query.value(4).toString();
+        QString nation = query.value(5).toString();
+
+        Performer P(id, name, gender, bYear, dYear, nation);
+        sort.push_back(P);
+    }
+
+    return sort;
 }

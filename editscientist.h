@@ -2,6 +2,9 @@
 #define EDITSCIENTIST_H
 
 #include <QDialog>
+#include "performerservice.h"
+
+using namespace std;
 
 namespace Ui {
 class editScientist;
@@ -14,9 +17,19 @@ class editScientist : public QDialog
 public:
     explicit editScientist(QWidget *parent = 0);
     ~editScientist();
+private slots:
+    void displayUpdateTable();
+
+    void on_table_update_scientist_clicked(const QModelIndex &index);
+
+    void on_button_edit_scientist_dialog_clicked();
+
+    void on_button_cancel_clicked();
 
 private:
     Ui::editScientist *ui;
+    PerformerService _service;
+    vector<Performer> currentlyDisplayedScientists;
 };
 
 #endif // EDITSCIENTIST_H

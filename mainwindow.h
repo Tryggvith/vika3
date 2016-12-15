@@ -60,6 +60,7 @@ private:
     PerformerService _service;
     vector<Performer> currentlyDisplayedScientists;
     vector<computers> currentlyDisplayedComputers;
+    //editScientist _edit;
 };
 
 #endif // MAINWINDOW_H
