@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     relationsid.cpp \
     relationstable.cpp \
     addscientistsdialog.cpp \
-    addcomputer.cpp
+    addcomputer.cpp \
+    editscientist.cpp
 
 HEADERS  += mainwindow.h \
     computers.h \
@@ -34,8 +35,10 @@ HEADERS  += mainwindow.h \
     relationsid.h \
     relationstable.h \
     addscientistsdialog.h \
-    addcomputer.h
+    addcomputer.h \
+    editscientist.h
 
 FORMS    += mainwindow.ui \
     addscientistsdialog.ui \
-    addcomputer.ui
+    addcomputer.ui \
+    editscientist.ui

@@ -125,11 +125,12 @@ void MainWindow::on_button_Add_Scientists_clicked()
 void MainWindow::on_table_Students_clicked(const QModelIndex &index)
 {
     ui->button_remove_scientist->setEnabled(true);
+    ui->button_edit_scientist->setEnabled(true);
 }
 
 void MainWindow::on_button_remove_scientist_clicked()
 {
-    int reply = QMessageBox::question(this, "do you really want to delete", "Are you sure you want to delete the selected scientist?");
+    int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected scientist?");
 
     if(reply == QMessageBox::Yes)
     {
@@ -180,7 +181,7 @@ void MainWindow::on_table_computers_clicked(const QModelIndex &index)
 
 void MainWindow::on_button_delete_computer_clicked()
 {
-    int reply = QMessageBox::question(this, "do you really want to delete", "Are you sure you want to delete the selected computer?");
+    int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected computer?");
 
     if(reply == QMessageBox::Yes)
     {
@@ -199,7 +200,7 @@ void MainWindow::on_button_delete_computer_clicked()
     }
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_button_add_computer_clicked()
 {
     AddComputer addcomputer;
     addcomputer.exec();
@@ -207,3 +208,10 @@ void MainWindow::on_pushButton_3_clicked()
 }
 
 
+
+void MainWindow::on_button_edit_scientist_clicked()
+{
+    editScientist EditScientist;
+    EditScientist.exec();
+
+}
