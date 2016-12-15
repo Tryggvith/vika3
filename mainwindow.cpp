@@ -140,7 +140,7 @@ void MainWindow::on_button_remove_scientist_clicked()
 
 
         string name = currentlySelectedScientist.getName().toStdString();
-        //ui->label_test->setText(currentlySelectedScientist.getName());
+        ui->label_test->setText(currentlySelectedScientist.getName()+ " was deleted!");
         _service.removeScientist(name);
         displayStudents();
     }
@@ -189,7 +189,7 @@ void MainWindow::on_button_delete_computer_clicked()
         computers currentlySelectedComputer = currentlyDisplayedComputers[currentlySelectedComputerIndex];
 
         string name = currentlySelectedComputer.getName().toStdString();
-        ui->label_test->setText("Deleted!");
+        ui->label_test->setText(currentlySelectedComputer.getName()+ " was deleted!");
         _service.removeComputer(name);
         displayComputers();
     }
