@@ -192,6 +192,13 @@
           </item>
          </layout>
         </item>
+        <item>
+         <widget class="QPushButton" name="button_Edit_Computer">
+          <property name="text">
+           <string>Edit Computer</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="Relations">
@@ -279,7 +286,7 @@
      <x>0</x>
      <y>0</y>
      <width>631</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

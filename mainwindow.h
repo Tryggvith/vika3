@@ -24,7 +24,6 @@ public:
 private slots:
     void displayStudents();
     void displayComputers();
-    void display();
 
     void on_combobox_filter_students_activated();
 
@@ -55,6 +54,8 @@ private slots:
     void on_button_add_computer_clicked();
 
     void on_button_edit_scientist_clicked();
+
+    void on_button_Edit_Computer_clicked();
 
 private:
     Ui::MainWindow *ui;
