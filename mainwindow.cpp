@@ -189,7 +189,7 @@ void MainWindow::on_button_delete_computer_clicked()
         computers currentlySelectedComputer = currentlyDisplayedComputers[currentlySelectedComputerIndex];
 
         string name = currentlySelectedComputer.getName().toStdString();
-        //ui->label_test->setText(currentlySelectedScientist.getName());
+        ui->label_test->setText("Deleted!");
         _service.removeComputer(name);
         displayComputers();
     }
