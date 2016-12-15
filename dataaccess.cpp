@@ -331,3 +331,18 @@ vector<Performer> DataAccess::displayScientists()
     return newVector;
 }
 
+void DataAccess::updateScientist(string input, string name, string id)
+{
+    string str = "UPDATE FROM Scientists SET " + input + " = \"" + name + "\" WHERE id = " + id;
+    QString qstr = QString::fromStdString(str);
+    QSqlQuery query;
+    query.exec(qstr);
+}
+
+void DataAccess::updateComputer(string input, string name, string id)
+{
+    string str = "UPDATE FROM Computers SET " + input + " = \"" + name + "\" WHERE id = " + id;
+    QString qstr = QString::fromStdString(str);
+    QSqlQuery query;
+    query.exec(qstr);
+}
