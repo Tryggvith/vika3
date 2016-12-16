@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add new connection</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="myresources.qrc">
+    <normaloff>:/icon/connections.png</normaloff>:/icon/connections.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -60,11 +64,18 @@
     </widget>
    </item>
    <item>
+    <widget class="QLabel" name="label_error">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QPushButton" name="pushButton">
        <property name="text">
-        <string>Add Connection</string>
+        <string>Save</string>
        </property>
       </widget>
      </item>
@@ -79,6 +90,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="myresources.qrc"/>
+ </resources>
  <connections/>
 </ui>

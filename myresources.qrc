@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>addScientistIcon.png</file>
+        <file>addComputer.png</file>
+        <file>connections.png</file>
+        <file>monitor.png</file>
+    </qresource>
+</RCC>

@@ -7,8 +7,8 @@ editScientist::editScientist(QWidget *parent) :
     ui(new Ui::editScientist)
 {
     ui->setupUi(this);
-    ui->comboBox->addItem("Female");
-    ui->comboBox->addItem("Male");
+    ui->comboBox_gender->addItem("Female");
+    ui->comboBox_gender->addItem("Male");
     displayUpdateTable();
 }
 
@@ -56,18 +56,26 @@ void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
 
     ui->input_Scientist_Name->setText("");
     ui->input_Scientist_Name->setText(Qname);
+    ui->comboBox_gender->currentText();
     ui->input_Scientist_bYear->setText("");
     ui->input_Scientist_bYear->setText(QbYear);
     ui->input_Scientist_dYear->setText("");
     ui->input_Scientist_dYear->setText(QdYear);
     ui->input_Scientist_Nation->setText("");
     ui->input_Scientist_Nation->setText(Qnation);
+
+    ui->input_Scientist_bYear->setEnabled(true);
+    ui->comboBox_gender->setEnabled(true);
+    ui->input_Scientist_dYear->setEnabled(true);
+    ui->input_Scientist_Name->setEnabled(true);
+    ui->input_Scientist_Nation->setEnabled(true);
+    ui->button_edit_scientist_dialog->setEnabled(true);
 }
 
 void editScientist::on_button_edit_scientist_dialog_clicked()
 {
     string name = ui->input_Scientist_Name->text().toStdString();
-    string gender = ui->comboBox->currentText().toStdString();
+    string gender = ui->comboBox_gender->currentText().toStdString();
     string bYear = ui->input_Scientist_bYear->text().toStdString();
     string dYear = ui->input_Scientist_dYear->text().toStdString();
     string nation = ui->input_Scientist_Nation->text().toStdString();
@@ -76,28 +84,42 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
     int id = currentlySelectedScientist.getId();
     string sId = to_string(id);
 
+    bool therewasanError = false;
+
     if(name.empty() ||  bYear.empty() || dYear.empty() || nation.empty())
     {
         ui->label_test->setText("<span style='color: red'>No fields can be empty!</span>");
+        therewasanError = true;
 
         return;
     }
-
-    bool therewasanError = false;
 
     int namelength = name.length();
 
     for(int i = 0 ; i < namelength; i++)
     {
-
-        if(!(isalpha(name[i])) && name[i] != ' ')
+         if(!(isalpha(name[i])) && name[i] != ' ')
         {
-            ui->label_empty_error->setText("<span style='color: red'>Invalid input sfafasfa!</span>");
+            ui->label_empty_error->setText("<span style='color: red'>Invalid input!</span>");
 
             therewasanError = true;
         }
-
+         else
+         {
+             ui->label_empty_error->setText("<span style='color: red'></span>");
+         }
     }
+
+         if(checkInput(name))
+         {
+             ui->label_empty_error->setText("<span style='color: red'>Invalid input!</span>");
+             therewasanError = true;
+         }
+         else
+         {
+             ui->label_empty_error->setText("<span style='color: red'></span>");
+         }
+
 
     int bvalue = atoi(bYear.c_str());
     int bYearLength = bYear.length();
@@ -110,11 +132,11 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
             bYearLength = bYear.length();
             therewasanError = true;
         }
+
     }
         if(bvalue < 0 || bvalue > 2016)
         {
             ui->label_empty_error_2->setText("<span style='color: red'>Invalid input!</span>");
-
             bvalue = atoi(bYear.c_str());
             therewasanError = true;
         }
@@ -144,7 +166,7 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
         }
 
         if(dvalue < bvalue && dYear != "--") {
-             ui->label_empty_error_3->setText("<span style='color: red'>Death year can not be less than birth year!</span>");
+             ui->label_empty_error_3->setText("<span style='color: red'>Invalid input!</span>");
              therewasanError = true;
         }
 
@@ -152,12 +174,26 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
 
     for(int i = 0 ; i < nationlength; i++)
     {
-        if(!(isalpha(nation[i])))
+        if(!(isalpha(nation[i])) && nation[i] != ' ')
         {
             ui->label_empty_error_4->setText("<span style='color: red'>Invalid input!</span>");
-
             therewasanError = true;
         }
+        else
+        {
+            ui->label_empty_error_4->setText("<span style='color: red'></span>");
+        }
+    }
+
+   if(checkInput(nation))
+    {
+        ui->label_empty_error_4->setText("<span style='color: red'>Invalid input!</span>");
+        therewasanError = true;
+    }
+    else
+    {
+        ui->label_empty_error_4->setText("<span style='color: red'></span>");
+
     }
 
     if(therewasanError)
@@ -165,11 +201,32 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
         return;
     }
 
-    _service.updateScientist(name, gender, bYear, dYear, nation, sId);
-    this->done(0);
+    if(!therewasanError)
+    {
+        _service.updateScientist(name, gender, bYear, dYear, nation, sId);
+         this->done(0);
+    }
 }
 
 void editScientist::on_button_cancel_clicked()
 {
     this->done(0);
+}
+
+bool editScientist::checkInput(string input)
+{
+    bool allTrue = true;
+    bool allFalse = true;
+    for(int i = 0; i < input.length(); i++)
+    {
+        if(input[i] == ' ')
+        {
+            allFalse = false;
+        }
+        else
+        {
+            allTrue = false;
+        }
+    }
+    return allTrue;
 }

@@ -26,6 +26,7 @@ SOURCES += main.cpp\
     addcomputer.cpp \
     editscientist.cpp \
     editcomputer.cpp \
+    addconnectiondialog.cpp
 
     addconnectiondialog.cpp \
 
@@ -49,7 +50,8 @@ FORMS    += mainwindow.ui \
     addcomputer.ui \
     editscientist.ui \
     editcomputer.ui \
-
-
     addconnectiondialog.ui \
 
+
+RESOURCES += \
+    myresources.qrc
