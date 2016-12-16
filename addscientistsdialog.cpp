@@ -68,6 +68,7 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
             bYearLength = bYear.length();
             therewasanError = true;
         }
+
     }
         if(bvalue < 0 || bvalue > 2016)
         {
@@ -115,6 +116,10 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
             ui->label_error_nation->setText("<span style='color: red'>Invalid input!</span>");
 
             therewasanError = true;
+        }
+        else
+        {
+            ui->label_error_nation->setText("<span style='color: red'></span>");
         }
     }
 
