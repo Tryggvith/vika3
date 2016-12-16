@@ -20,12 +20,12 @@ AddComputer::~AddComputer()
     delete ui;
 }
 
-void AddComputer::on_Button_Cancel_Add_clicked()
+void AddComputer::on_Button_Cancel_Add_clicked()//Fall sem að tengist beint takka sem búin var til í UI, notaður til að hætta við að setja inn nýjan tölvunarfræðing
 {
     this->done(0);
 }
 
-void AddComputer::on_Button_Add_Computer_clicked()
+void AddComputer::on_Button_Add_Computer_clicked()//Fall sem að tengist beint takka sem búin var til í UI, sækir upplýsingar um tölvu og uppfærir á lista
 {
     string name = ui->Input_Computer_Name->text().toStdString();
     string type = ui->comboBox_type->currentText().toStdString();
@@ -101,7 +101,7 @@ void AddComputer::on_Button_Add_Computer_clicked()
       }
 }
 
-bool AddComputer::checkInput(string input)
+bool AddComputer::checkInput(string input)//Fall sem passar að strengur geti ekki verið tómur (Villutékk)
 {
     bool allTrue = true;
 
@@ -120,7 +120,7 @@ bool AddComputer::checkInput(string input)
     return allTrue;
 }
 
-void AddComputer::on_comboBox_constr_activated(const QString &arg1)
+void AddComputer::on_comboBox_constr_activated(const QString &arg1)//Fall sem að tengist beint UI takka sem búin var til, gerir notanda kleyft að velja á milli strengja og skila þeim út
 {
     QVariant a = arg1;
     string constr = ui->comboBox_constr->currentText().toStdString();
