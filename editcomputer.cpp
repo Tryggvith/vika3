@@ -10,7 +10,7 @@ editcomputer::editcomputer(QWidget *parent) :
     ui->comboBox_constr->addItem("Yes");
     ui->comboBox_constr->addItem("No");
     ui->comboBox_type->addItem("Mechanical");
-    ui->comboBox_type->addItem("Elecric");
+    ui->comboBox_type->addItem("Electric");
     ui->comboBox_type->addItem("Electromechanical");
 
 
