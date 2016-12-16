@@ -343,10 +343,10 @@ void DataAccess::updateScientist(QString name, QString gender, QString bYear, QS
 void DataAccess::updateComputer(QString name, QString buildy, QString brand, QString constr, QString id)
 {
     QSqlQuery query;
-    query.prepare("UPDATE Computers SET name=:name, buildy=:buildy, brand=:brand, constr=:constr WHERE id=:id ");
+    query.prepare("UPDATE Computers SET name=:name, buildy=:buildy, type=:type, constr=:constr WHERE id=:id ");
     query.bindValue(":name", name);
     query.bindValue(":buildy", buildy);
-    query.bindValue(":brand", brand);
+    query.bindValue(":type", brand);
     query.bindValue(":constr", constr);
     query.bindValue(":id", id);
     query.exec();
