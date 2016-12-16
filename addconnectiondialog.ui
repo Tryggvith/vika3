@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add new connection</string>
+   <string>Add new relation</string>
   </property>
   <property name="windowIcon">
    <iconset resource="myresources.qrc">

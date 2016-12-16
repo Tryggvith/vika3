@@ -25,7 +25,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Scientists">
        <attribute name="title">
@@ -35,7 +35,7 @@
         <item>
          <widget class="QLineEdit" name="input_scientist_search">
           <property name="placeholderText">
-           <string>Search for a name ..</string>
+           <string>Type here to search for a specific scientist...</string>
           </property>
          </widget>
         </item>
@@ -134,7 +134,7 @@
         <item>
          <widget class="QLineEdit" name="line_input_Computer_name">
           <property name="placeholderText">
-           <string>Search a Computer name ..</string>
+           <string>Type here to search for a specific computer...</string>
           </property>
          </widget>
         </item>
@@ -180,7 +180,7 @@
           <item>
            <widget class="QPushButton" name="button_add_computer">
             <property name="text">
-             <string>Add Computer</string>
+             <string>Add new computer</string>
             </property>
            </widget>
           </item>
@@ -190,7 +190,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Remove Computer</string>
+             <string>Remove selected computer</string>
             </property>
            </widget>
           </item>
@@ -306,7 +306,7 @@
                 <item>
                  <widget class="QPushButton" name="button_add_connection">
                   <property name="text">
-                   <string>Add relation</string>
+                   <string>Add new relation</string>
                   </property>
                  </widget>
                 </item>
