@@ -7,11 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->combobox_filter_students->addItem("name");
-    ui->combobox_filter_students->addItem("gender");
-    ui->combobox_filter_students->addItem("bYear");
-    ui->combobox_filter_students->addItem("dYear");
-    ui->combobox_filter_students->addItem("nation");
+    ui->combobox_filter_students->addItem("Filter by name");
+    ui->combobox_filter_students->addItem("Filter by gender");
+    ui->combobox_filter_students->addItem("Filter by birth year");
+    ui->combobox_filter_students->addItem("Filter by death year");
+    ui->combobox_filter_students->addItem("Filter by nationality");
     ui->comboBox_2->addItem("ASC");
     ui->comboBox_2->addItem("DESC");
 
@@ -39,6 +39,26 @@ MainWindow::~MainWindow()
 void MainWindow::displayStudents()
 {
     string input = ui->combobox_filter_students->currentText().toStdString();
+    if (input == "Filter by birth year")
+    {
+        input = "bYear";
+    }
+    else if (input == "Filter by nationality")
+    {
+        input = "nation";
+    }
+    else if (input == "Filter by death year")
+    {
+        input = "dYear";
+    }
+    else if (input == "Filter by name")
+    {
+        input = "name";
+    }
+    else if (input == "Filter by gender")
+    {
+        input = "gender";
+    }
     string input2 = ui->comboBox_2->currentText().toStdString();
     string input3 = ui->input_scientist_search->text().toStdString();
     vector<Performer> pf = _service.sortScientists(input, input2, input3);
@@ -128,6 +148,7 @@ void MainWindow::on_button_Add_Scientists_clicked()
 {
     AddScientistsDialog addScientistsDialog;
     addScientistsDialog.exec();
+    ui->button_remove_scientist->setEnabled(false);
     displayStudents();
 }
 
@@ -135,7 +156,6 @@ void MainWindow::on_table_Students_clicked(const QModelIndex &index)
 {
     QVariant a = index;
     ui->button_remove_scientist->setEnabled(true);
-    ui->button_edit_scientist->setEnabled(true);
 }
 
 void MainWindow::on_button_remove_scientist_clicked()
@@ -153,6 +173,7 @@ void MainWindow::on_button_remove_scientist_clicked()
         string name = currentlySelectedScientist.getName().toStdString();
         ui->label_test->setText(currentlySelectedScientist.getName()+ " was deleted!");
         _service.removeScientist(name);
+        ui->button_remove_scientist->setEnabled(false);
         displayStudents();
     }
     else
@@ -211,6 +232,7 @@ void MainWindow::on_button_add_computer_clicked()
 {
     AddComputer addcomputer;
     addcomputer.exec();
+    ui->button_delete_computer->setEnabled(false);
     displayComputers();
 }
 
@@ -220,6 +242,7 @@ void MainWindow::on_button_edit_scientist_clicked()
 {
     editScientist EditScientist;
     EditScientist.exec();
+    ui->button_remove_scientist->setEnabled(false);
     displayStudents();
 }
 
@@ -279,11 +302,16 @@ void MainWindow::displayComputersJoin(string id)
 
 void MainWindow::on_table_View_join_Connections_clicked(const QModelIndex &index)
 {
+    QVariant a = index;
     ui->button_remove_connection->setEnabled(true);
 }
 
 void MainWindow::on_button_remove_connection_clicked()
 {
+    int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected relations?");
+
+    if(reply == QMessageBox::Yes)
+    {
     int currentlySelectedConnectionIndex = ui->table_View_join_Connections->currentIndex().row();
 
     RelationsID currentlySelectedConnection = currentlyDisplayedConnections[currentlySelectedConnectionIndex];
@@ -291,11 +319,17 @@ void MainWindow::on_button_remove_connection_clicked()
     int id = currentlySelectedConnection.get_id();
     _service.removeJoin(id);
     displayAllJoin();
+    }
+    else
+    {
+        ui->button_remove_connection->setEnabled(false);
+    }
 }
 
 void MainWindow::on_button_add_connection_clicked()
 {
     AddConnectionDialog addConnectionDialog;
     addConnectionDialog.exec();
+    ui->button_remove_scientist->setEnabled(false);
     displayAllJoin();
 }

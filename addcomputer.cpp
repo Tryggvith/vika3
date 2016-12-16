@@ -54,13 +54,16 @@ void AddComputer::on_Button_Add_Computer_clicked()
     int bvalue = atoi(buildy.c_str());
     int bYearLength = buildy.length();
 
-    for(int i = 0; i < bYearLength; i++)
+    if(constr == "Yes")
     {
-        if(!isdigit(buildy[i]))
+        for(int i = 0; i < bYearLength; i++)
         {
-            ui->label_error_buildy->setText("<span style='color: red'>Invalid input!</span>");
-            bYearLength = buildy.length();
-            therewasanError = true;
+            if(!isdigit(buildy[i]))
+            {
+                ui->label_error_buildy->setText("<span style='color: red'>Invalid input!</span>");
+                bYearLength = buildy.length();
+                therewasanError = true;
+            }
         }
     }
 
@@ -102,4 +105,20 @@ bool AddComputer::checkInput(string input)
     }
 
     return allTrue;
+}
+
+void AddComputer::on_comboBox_constr_activated(const QString &arg1)
+{
+    QVariant a = arg1;
+    string constr = ui->comboBox_constr->currentText().toStdString();
+    if(constr == "Yes")
+    {
+        ui->Input_Computer_Year->setEnabled(true);
+        ui->Input_Computer_Year->setText("");
+    }
+    else
+    {
+        ui->Input_Computer_Year->setEnabled(false);
+        ui->Input_Computer_Year->setText("--");
+    }
 }
