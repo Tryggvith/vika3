@@ -104,12 +104,13 @@ void AddComputer::on_Button_Add_Computer_clicked()
 bool AddComputer::checkInput(string input)
 {
     bool allTrue = true;
+    bool allFalse = true;
 
-    for(unsigned int i = 0; i < input.length(); i++)
+    for(int i = 0; i < input.length(); i++)
     {
         if(input[i] == ' ')
         {
-            allTrue = false;
+            allFalse = false;
         }
         else
         {

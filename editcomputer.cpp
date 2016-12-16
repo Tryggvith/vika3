@@ -73,6 +73,8 @@ void editcomputer::on_button_edit_computer_dialog_clicked()
     string buildy = ui->input_Computer_buildy->text().toStdString();
     string brand = ui->input_Computer_Model->text().toStdString();
 
+
+
     int currentlySelectedComputerIndex = ui->table_update_computer->currentIndex().row();
     computers currentlySelectedComputer = currentlyDisplayedComputers[currentlySelectedComputerIndex];
     int id = currentlySelectedComputer.getId();

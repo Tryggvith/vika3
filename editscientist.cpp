@@ -99,21 +99,20 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
 
     int namelength = name.length();
 
+    bool founderrorname = false;
+
     for(int i = 0 ; i < namelength; i++)
     {
-         if(!(isalpha(name[i])) && name[i] != ' ')
+        if(!(isalpha(name[i])) && name[i] != ' ')
         {
-            ui->label_empty_error->setText("<span style='color: red'>Invalid input!</span>");
-
-            therewasanError = true;
+            founderrorname = true;
         }
-         else
-         {
-             ui->label_empty_error->setText("<span style='color: red'></span>");
-         }
     }
-
          if(checkInput(name))
+         {
+             founderrorname = true;
+         }
+         if(founderrorname)
          {
              ui->label_empty_error->setText("<span style='color: red'>Invalid input!</span>");
              therewasanError = true;
@@ -124,6 +123,7 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
          }
 
 
+    bool founderrorbyear = false;
     int bvalue = atoi(bYear.c_str());
     int bYearLength = bYear.length();
 
@@ -131,20 +131,30 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
     {
         if(!isdigit(bYear[i]))
         {
-            ui->label_empty_error_2->setText("<span style='color: red'>Invalid input!</span>");
             bYearLength = bYear.length();
-            therewasanError = true;
+            founderrorbyear = true;
         }
 
     }
         if(bvalue < 0 || bvalue > 2016)
         {
-            ui->label_empty_error_2->setText("<span style='color: red'>Invalid input!</span>");
+
             bvalue = atoi(bYear.c_str());
+            founderrorbyear = true;
+        }
+
+        if(founderrorbyear)
+        {
+            ui->label_empty_error_2->setText("<span style='color: red'>Invalid input!</span>");
             therewasanError = true;
+        }
+        else
+        {
+            ui->label_empty_error_2->setText("<span style='color: red'></span>");
         }
 
 
+    bool founderrordyear = false;
     int dvalue = atoi(dYear.c_str());
     int dYearLength = dYear.length();
     if(dYear != "--")
@@ -153,62 +163,69 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
         {
             if(!isdigit(dYear[i]))
             {
-                ui->label_empty_error_3->setText("<span style='color: red'>Invalid input!</span>");
                 dYearLength = dYear.length();
-                therewasanError = true;
+                founderrordyear= true;
             }
         }
     }
-
         if(dvalue < 0 || dvalue > 2016)
         {
-            ui->label_empty_error_3->setText("<span style='color: red'>Invalid input!</span>");
-
             dvalue = atoi(dYear.c_str());
+            founderrordyear = true;
+        }
+
+        if(dvalue < bvalue && dYear != "--")
+        {
+             founderrordyear = true;
+        }
+        if(founderrordyear)
+        {
+            ui->label_empty_error_3->setText("<span style='color: red'>Invalid input!</span>");
             therewasanError = true;
         }
-
-        if(dvalue < bvalue && dYear != "--") {
-             ui->label_empty_error_3->setText("<span style='color: red'>Invalid input!</span>");
-             therewasanError = true;
+        else
+        {
+            ui->label_empty_error_3->setText("<span style='color: red'></span>");
         }
 
+    bool founderrornation = false;
     int nationlength = nation.length();
 
     for(int i = 0 ; i < nationlength; i++)
     {
         if(!(isalpha(nation[i])) && nation[i] != ' ')
         {
-            ui->label_empty_error_4->setText("<span style='color: red'>Invalid input!</span>");
-            therewasanError = true;
-        }
-        else
-        {
-            ui->label_empty_error_4->setText("<span style='color: red'></span>");
+            founderrornation = true;
         }
     }
 
-   if(checkInput(nation))
+    if(checkInput(nation))
     {
+        founderrornation = true;
+    }
+
+       if(founderrornation)
+      {
         ui->label_empty_error_4->setText("<span style='color: red'>Invalid input!</span>");
         therewasanError = true;
-    }
-    else
-    {
-        ui->label_empty_error_4->setText("<span style='color: red'></span>");
+      }
+       else
+       {
+           ui->label_empty_error_4->setText("<span style='color: red'></span>");
+       }
 
-    }
 
-    if(therewasanError)
-    {
-        return;
-    }
 
-    if(!therewasanError)
-    {
-        _service.updateScientist(name, gender, bYear, dYear, nation, sId);
-         this->done(0);
-    }
+       if(therewasanError)
+       {
+           return;
+       }
+
+        if(!therewasanError)
+        {
+            _service.updateScientist(name, gender, bYear, dYear, nation, sId);
+             this->done(0);
+        }
 }
 
 void editScientist::on_button_cancel_clicked()
