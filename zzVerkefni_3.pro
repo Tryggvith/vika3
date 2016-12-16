@@ -45,3 +45,6 @@ FORMS    += mainwindow.ui \
     addcomputer.ui \
     editscientist.ui \
     addconnectiondialog.ui
+
+RESOURCES += \
+    myresources.qrc
