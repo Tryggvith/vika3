@@ -1,12 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <QDesktopWidget>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    displayIntro();
     ui->setupUi(this);
+    resize(QDesktopWidget().availableGeometry(this).size() * 0.7);
     ui->combobox_filter_students->addItem("Filter by name");
     ui->combobox_filter_students->addItem("Filter by gender");
     ui->combobox_filter_students->addItem("Filter by birth year");
@@ -323,4 +326,10 @@ void MainWindow::on_button_add_connection_clicked()
     addConnectionDialog.exec();
     ui->button_remove_scientist->setEnabled(false);
     displayAllJoin();
+}
+
+void MainWindow::displayIntro()
+{
+    IntroDialog introDialog;
+    introDialog.exec();
 }

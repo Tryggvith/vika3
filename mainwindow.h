@@ -9,6 +9,7 @@
 #include "addcomputer.h"
 #include "editscientist.h"
 #include "addconnectiondialog.h"
+#include "introdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -70,6 +71,7 @@ private slots:
 
     void on_button_add_connection_clicked();
 
+    void displayIntro();
 private:
     Ui::MainWindow *ui;
     PerformerService _service;
