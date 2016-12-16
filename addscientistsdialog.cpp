@@ -172,12 +172,11 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
 bool AddScientistsDialog::checkInput(string input)
 {
     bool allTrue = true;
-    bool allFalse = true;
-    for(int i = 0; i < input.length(); i++)
+    for(unsigned int i = 0; i < input.length(); i++)
     {
         if(input[i] == ' ')
         {
-            allFalse = false;
+            allTrue = false;
         }
         else
         {

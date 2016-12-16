@@ -1,11 +1,13 @@
 #include "addconnectiondialog.h"
 #include "ui_addconnectiondialog.h"
+#include <QDesktopWidget>
 
 AddConnectionDialog::AddConnectionDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddConnectionDialog)
 {
     ui->setupUi(this);
+    resize(QDesktopWidget().availableGeometry(this).size() * 0.7);
     displayTable();
 }
 
@@ -65,7 +67,6 @@ void AddConnectionDialog::on_pushButton_clicked()
 
 bool AddConnectionDialog::checkID(vector<RelationsTable2> info, QString ID)
 {
-    bool found = false;
     bool found2 = false;
     string choice = ID.toStdString();
     int value;
@@ -76,7 +77,6 @@ bool AddConnectionDialog::checkID(vector<RelationsTable2> info, QString ID)
 
             if(info[i].getSId()== value)
             {
-                found = true;
                 found2 = true;
             }
         }

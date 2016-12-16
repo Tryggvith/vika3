@@ -2,6 +2,7 @@
 #define INTRODIALOG_H
 
 #include <QDialog>
+#include "creditsdialog.h"
 
 namespace Ui {
 class IntroDialog;
@@ -15,6 +16,11 @@ public:
     explicit IntroDialog(QWidget *parent = 0);
 
     ~IntroDialog();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::IntroDialog *ui;
