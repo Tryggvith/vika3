@@ -19,7 +19,7 @@ public:
     explicit editcomputer(QWidget *parent = 0);
     ~editcomputer();
     bool checkInput(string input);
-    void on_comboBox_constr_activated(const QString &arg1);
+
 private slots:
     void displayUpdateTable();
 
@@ -28,6 +28,9 @@ private slots:
     void on_button_edit_computer_dialog_clicked();
 
     void on_button_cancel_clicked();
+
+    void on_comboBox_constr_activated(const QString &arg1);
+
 
 private:
     Ui::editcomputer *ui;
