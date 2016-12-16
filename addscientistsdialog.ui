@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add Scientist</string>
+   <string>Add new scientist</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="myresources.qrc">
+    <normaloff>:/icon/addScientistIcon.png</normaloff>:/icon/addScientistIcon.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -82,7 +86,7 @@
      <item>
       <widget class="QLabel" name="label_dYear">
        <property name="text">
-        <string>Death Year</string>
+        <string>Death Year or enter &quot;--&quot; if alive</string>
        </property>
       </widget>
      </item>
@@ -159,6 +163,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="myresources.qrc"/>
+ </resources>
  <connections/>
 </ui>

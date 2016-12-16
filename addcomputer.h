@@ -23,6 +23,8 @@ private slots:
 
     void on_Button_Add_Computer_clicked();
 
+    void on_comboBox_constr_activated(const QString &arg1);
+
 private:
     Ui::AddComputer *ui;
     PerformerService _service;
