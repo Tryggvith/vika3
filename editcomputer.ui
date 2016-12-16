@@ -45,7 +45,11 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_Computer_Name"/>
+    <widget class="QLineEdit" name="input_Computer_Name">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -66,7 +70,11 @@
     </layout>
    </item>
    <item>
-    <widget class="QComboBox" name="comboBox_constr"/>
+    <widget class="QComboBox" name="comboBox_constr">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -87,7 +95,11 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_Computer_buildy"/>
+    <widget class="QLineEdit" name="input_Computer_buildy">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -108,7 +120,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_Computer_Model"/>
+    <widget class="QComboBox" name="comboBox_type"/>
    </item>
    <item>
     <widget class="QLabel" name="label">
@@ -127,7 +139,10 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="button_edit_computer_dialog">
+      <widget class="QPushButton" name="button_save_edited_computer">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Save</string>
        </property>

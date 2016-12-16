@@ -9,6 +9,11 @@ editcomputer::editcomputer(QWidget *parent) :
     ui->setupUi(this);
     ui->comboBox_constr->addItem("Yes");
     ui->comboBox_constr->addItem("No");
+    ui->comboBox_type->addItem("Mechanical");
+    ui->comboBox_type->addItem("Elecric");
+    ui->comboBox_type->addItem("Electromechanical");
+
+
     displayUpdateTable();
 }
 
@@ -57,10 +62,21 @@ void editcomputer::on_table_update_computer_clicked(const QModelIndex &index)
     ui->input_Computer_Name->setText(Qname);
     ui->input_Computer_buildy->setText("");
     ui->input_Computer_buildy->setText(Qbuildy);
-    ui->input_Computer_Model->setText("");
-    ui->input_Computer_Model->setText(Qbrand);
+    ui->comboBox_type->currentText();
+    ui->comboBox_type->setCurrentText(Qbrand);
     ui->comboBox_constr->currentText();
     ui->comboBox_constr->setCurrentText(Qconstr);
+
+    ui->button_save_edited_computer->setEnabled(true);
+    ui->input_Computer_Name->setEnabled(true);
+    ui->input_Computer_buildy->setEnabled(true);
+    ui->comboBox_type->setEnabled(true);
+    ui->comboBox_constr->setEnabled(true);
+
+
+
+
+
 
 }
 
@@ -69,7 +85,7 @@ void editcomputer::on_button_edit_computer_dialog_clicked()
     string name = ui->input_Computer_Name->text().toStdString();
     string constr = ui->comboBox_constr->currentText().toStdString();
     string buildy = ui->input_Computer_buildy->text().toStdString();
-    string brand = ui->input_Computer_Model->text().toStdString();
+    string brand = ui->comboBox_type->currentText().toStdString();
     int currentlySelectedComputerIndex = ui->table_update_computer->currentIndex().row();
     computers currentlySelectedComputer = currentlyDisplayedComputers[currentlySelectedComputerIndex];
     int id = currentlySelectedComputer.getId();
