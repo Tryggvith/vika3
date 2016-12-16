@@ -70,20 +70,15 @@ bool AddConnectionDialog::checkID(vector<RelationsTable2> info, QString ID)
     string choice = ID.toStdString();
     int value;
 
-  //  do
-    //{
+
         value = atoi(choice.c_str());
-        for(size_t i = 0; i < info.size(); i++)
-        {
-            //qDebug() << info[i].getSName() << " ";
-            //qDebug() << info[i].getSId();
+        for(size_t i = 0; i < info.size(); i++){
+
             if(info[i].getSId()== value)
             {
                 found = true;
                 found2 = true;
             }
-qDebug() << found2;
         }
-    //}while(!found);
     return found2;
 }

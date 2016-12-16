@@ -17,6 +17,7 @@ class AddComputer : public QDialog
 public:
     explicit AddComputer(QWidget *parent = 0);
     ~AddComputer();
+    bool checkInput(string input);
 
 private slots:
     void on_Button_Cancel_Add_clicked();

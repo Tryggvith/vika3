@@ -249,7 +249,7 @@ void MainWindow::on_button_add_computer_clicked()
 {
     AddComputer addcomputer;
     addcomputer.exec();
-    ui->button_remove_scientist->setEnabled(false);
+    ui->button_delete_computer->setEnabled(false);
     displayComputers();
 }
 
@@ -319,11 +319,16 @@ void MainWindow::displayComputersJoin(string id)
 
 void MainWindow::on_table_View_join_Connections_clicked(const QModelIndex &index)
 {
+    QVariant a = index;
     ui->button_remove_connection->setEnabled(true);
 }
 
 void MainWindow::on_button_remove_connection_clicked()
 {
+    int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected relations?");
+
+    if(reply == QMessageBox::Yes)
+    {
     int currentlySelectedConnectionIndex = ui->table_View_join_Connections->currentIndex().row();
 
     RelationsID currentlySelectedConnection = currentlyDisplayedConnections[currentlySelectedConnectionIndex];
@@ -331,6 +336,11 @@ void MainWindow::on_button_remove_connection_clicked()
     int id = currentlySelectedConnection.get_id();
     _service.removeJoin(id);
     displayAllJoin();
+    }
+    else
+    {
+        ui->button_remove_connection->setEnabled(false);
+    }
 }
 
 void MainWindow::on_button_add_connection_clicked()

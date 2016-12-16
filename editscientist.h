@@ -17,6 +17,7 @@ class editScientist : public QDialog
 public:
     explicit editScientist(QWidget *parent = 0);
     ~editScientist();
+    bool checkInput(string input);
 private slots:
     void displayUpdateTable();
 
