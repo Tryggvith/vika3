@@ -14,6 +14,11 @@ editcomputer::editcomputer(QWidget *parent) :
     ui->comboBox_type->addItem("Electromechanical");
 
 
+
+    ui->comboBox_constr->setEnabled(false);
+
+
+
     displayUpdateTable();
 }
 
@@ -44,6 +49,7 @@ void editcomputer::displayUpdateTable()
 
 void editcomputer::on_table_update_computer_clicked(const QModelIndex &index) //Þetta fall er hérna til að sækja upplýsingar fyrir uppfærslu á tölvu
 {
+
     QVariant a = index;
     int currentlySelectedComputerIndex = ui->table_update_computer->currentIndex().row();
     computers currentlySelectedComputer = currentlyDisplayedComputers[currentlySelectedComputerIndex];
@@ -73,6 +79,10 @@ void editcomputer::on_table_update_computer_clicked(const QModelIndex &index) //
     ui->input_Computer_buildy->setEnabled(true);
     ui->comboBox_type->setEnabled(true);
     ui->comboBox_constr->setEnabled(true);
+    if(ui->comboBox_constr->currentText() == "No")
+    {
+        ui->input_Computer_buildy->setEnabled(false);
+    }
 
 
 
@@ -101,53 +111,50 @@ void editcomputer::on_button_edit_computer_dialog_clicked() //Fall sem notast er
             return;
         }
         if(checkInput(name))
-            {
-                ui->label_error_name->setText("<span style='color: red'>Invalid input!</span>");
-                therewasanError = true;
-            }
-            else {
-                  ui->label_error_name->setText("<span style='color: red'></span>");
-            }
-
-            int bvalue = atoi(buildy.c_str());
-            int bYearLength = buildy.length();
-
-            if(constr == "Yes")
-            {
-                for(int i = 0; i < bYearLength; i++)
-                {
-                    if(!isdigit(buildy[i]))
-                    {
-                        ui->label_error_buildYear->setText("<span style='color: red'>Invalid input!</span>");
-                        bYearLength = buildy.length();
-                        therewasanError = true;
-                    }
-                }
-            }
-
-            if(bvalue < 0 || bvalue > 2016)
-            {
-                 ui->label_error_buildYear->setText("<span style='color: red'>Invalid input!</span>");
-
-                  bvalue = atoi(buildy.c_str());
-                  therewasanError = true;
-             }
-
-             if(therewasanError)
-             {
-                return;
-             }
-
-             if(!therewasanError)
-              {
-                 _service.updateComputer(name, buildy, brand, constr, cId);
-                 this->done(0);
-              }
+        {
+            ui->label_error_name->setText("<span style='color: red'>Invalid input!</span>");
+            therewasanError = true;
+        }
+        else
+        {
+              ui->label_error_name->setText("<span style='color: red'></span>");
         }
 
-/*    _service.updateComputer(name, buildy, brand, constr, sId);
-    this->done(0);*/
+        int bvalue = atoi(buildy.c_str());
+        int bYearLength = buildy.length();
 
+        if(constr == "Yes")
+        {
+            for(int i = 0; i < bYearLength; i++)
+            {
+                if(!isdigit(buildy[i]))
+                {
+                   ui->label_error_buildYear->setText("<span style='color: red'>Invalid input!</span>");
+                   bYearLength = buildy.length();
+                   therewasanError = true;
+                }
+            }
+        }
+
+        if(bvalue < 0 || bvalue > 2016)
+        {
+            ui->label_error_buildYear->setText("<span style='color: red'>Invalid input!</span>");
+
+            bvalue = atoi(buildy.c_str());
+            therewasanError = true;
+        }
+
+        if(!therewasanError)
+        {
+            _service.updateComputer(name, buildy, brand, constr, cId);
+            this->done(0);
+        }
+
+        else
+        {
+            return;
+        }
+}
 
 void editcomputer::on_button_cancel_clicked()//Fall sem notast er við þegar notandi ýtir á takkan cancel og hættir við uppfærslu á tölvu
 {
@@ -170,7 +177,7 @@ void editcomputer::on_comboBox_constr_activated(const QString &arg1)//Fall sem n
     }
 }
 
-bool editcomputer::checkInput(string input)//Fall sem athugar hvort strengur er tómur eða ekki (Villutékk)
+bool editcomputer::checkInput(string input) //Fall sem athugar hvort strengur er tómur eða ekki (Villutékk)
 {
     bool allTrue = true;
 
@@ -187,4 +194,69 @@ bool editcomputer::checkInput(string input)//Fall sem athugar hvort strengur er 
     }
 
     return allTrue;
+}
+
+void editcomputer::on_button_save_edited_computer_clicked()
+{
+    string name = ui->input_Computer_Name->text().toStdString();
+    string constr = ui->comboBox_constr->currentText().toStdString();
+    string buildy = ui->input_Computer_buildy->text().toStdString();
+    string brand = ui->comboBox_type->currentText().toStdString();
+    int currentlySelectedComputerIndex = ui->table_update_computer->currentIndex().row();
+    computers currentlySelectedComputer = currentlyDisplayedComputers[currentlySelectedComputerIndex];
+    int id = currentlySelectedComputer.getId();
+    string cId = to_string(id);
+
+    bool therewasanError = false;
+
+        if(name.empty() || buildy.empty())
+        {
+            ui->label_error_name->setText("<span style='color: red'>No fields can be empty!</span>");
+            therewasanError = true;
+            return;
+        }
+        if(checkInput(name))
+        {
+            ui->label_error_name->setText("<span style='color: red'>Invalid input!</span>");
+            therewasanError = true;
+        }
+        else
+        {
+              ui->label_error_name->setText("<span style='color: red'></span>");
+        }
+
+        int bvalue = atoi(buildy.c_str());
+        int bYearLength = buildy.length();
+
+        if(constr == "Yes")
+        {
+            for(int i = 0; i < bYearLength; i++)
+            {
+                if(!isdigit(buildy[i]))
+                {
+                   ui->label_error_buildYear->setText("<span style='color: red'>Invalid input!</span>");
+                   bYearLength = buildy.length();
+                   therewasanError = true;
+                }
+            }
+        }
+
+        if(bvalue < 0 || bvalue > 2016)
+        {
+            ui->label_error_buildYear->setText("<span style='color: red'>Invalid input!</span>");
+
+            bvalue = atoi(buildy.c_str());
+            therewasanError = true;
+        }
+
+        if(!therewasanError)
+        {
+            _service.updateComputer(name, buildy, brand, constr, cId);
+            this->done(0);
+        }
+
+        else
+        {
+            return;
+        }
 }

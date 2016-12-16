@@ -32,6 +32,8 @@ private slots:
     void on_comboBox_constr_activated(const QString &arg1);
 
 
+    void on_button_save_edited_computer_clicked();
+
 private:
     Ui::editcomputer *ui;
     PerformerService _service;

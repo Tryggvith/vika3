@@ -264,7 +264,7 @@ void MainWindow::on_button_edit_scientist_clicked() // þetta fall keyrir glugga
     displayStudents();
 }
 
-void MainWindow::on_button_edit_computer_clicked() // þetta fall keyrir glugga og enablear takka og displayar table þegar keyrslu er hætt.
+void MainWindow::on_button_edit_computer_clicked() // // þetta fall keyrir glugga og enablear takka og displayar table þegar keyrslu er hætt.
 {
     editcomputer EditComputer;
     EditComputer.exec();
