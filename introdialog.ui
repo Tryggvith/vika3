@@ -81,7 +81,7 @@
     </layout>
    </item>
   </layout>
- </widget>
+</widget>
  <resources>
   <include location="myresources.qrc"/>
  </resources>

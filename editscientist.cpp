@@ -1,12 +1,14 @@
 #include "editscientist.h"
 #include "ui_editscientist.h"
 #include <sstream>
+#include <QDesktopWidget>
 
 editScientist::editScientist(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::editScientist)
 {
     ui->setupUi(this);
+    resize(QDesktopWidget().availableGeometry(this).size() * 0.7);
     ui->comboBox_gender->addItem("Female");
     ui->comboBox_gender->addItem("Male");
     displayUpdateTable();
