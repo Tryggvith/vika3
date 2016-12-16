@@ -62,6 +62,12 @@ void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
     ui->input_Scientist_dYear->setText(QdYear);
     ui->input_Scientist_Nation->setText("");
     ui->input_Scientist_Nation->setText(Qnation);
+
+    ui->input_Scientist_bYear->setEnabled(true);
+    ui->input_Scientist_dYear->setEnabled(true);
+    ui->input_Scientist_Name->setEnabled(true);
+    ui->input_Scientist_Nation->setEnabled(true);
+    ui->button_edit_scientist_dialog->setEnabled(true);
 }
 
 void editScientist::on_button_edit_scientist_dialog_clicked()

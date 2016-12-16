@@ -23,7 +23,7 @@ public:
     string removeComputer(string name);
     void addPerformer(string name, string gender, string birth, string death, string nation); //Bætir nýjum tölvunarfræðingi inn í skrána
     void addComputer(string name, string buildy, string brand, string constr);
-    void addRelations(int sId, int cId);
+    void addRelations(QString sId, QString cId);
     void removeJoin(int id);
     void updateScientist(string name, string gender, string bYear, string dYear, string nation, string id);
     void updateComputer(string input, string id);

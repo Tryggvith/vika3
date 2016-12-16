@@ -69,7 +69,7 @@ vector<RelationsTable2> PerformerService::viewScientist(int counter)
     return pf;
 }
 
-void PerformerService::addRelations(int sId, int cId)
+void PerformerService::addRelations(QString sId, QString cId)
 {
     _data.addRelations(sId, cId);
 }

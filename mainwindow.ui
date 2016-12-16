@@ -302,7 +302,7 @@
                 <item>
                  <widget class="QPushButton" name="button_add_connection">
                   <property name="text">
-                   <string>Add Scientists</string>
+                   <string>Add Connection</string>
                   </property>
                  </widget>
                 </item>
