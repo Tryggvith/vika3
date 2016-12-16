@@ -18,6 +18,8 @@ class editcomputer : public QDialog
 public:
     explicit editcomputer(QWidget *parent = 0);
     ~editcomputer();
+    bool checkInput(string input);
+    void on_comboBox_constr_activated(const QString &arg1);
 private slots:
     void displayUpdateTable();
 
