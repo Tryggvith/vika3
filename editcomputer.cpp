@@ -42,7 +42,7 @@ void editcomputer::displayUpdateTable()
 
 }
 
-void editcomputer::on_table_update_computer_clicked(const QModelIndex &index)
+void editcomputer::on_table_update_computer_clicked(const QModelIndex &index) //Þetta fall er hérna til að sækja upplýsingar fyrir uppfærslu á tölvu
 {
     QVariant a = index;
     int currentlySelectedComputerIndex = ui->table_update_computer->currentIndex().row();
@@ -81,7 +81,7 @@ void editcomputer::on_table_update_computer_clicked(const QModelIndex &index)
 
 }
 
-void editcomputer::on_button_edit_computer_dialog_clicked()
+void editcomputer::on_button_edit_computer_dialog_clicked() //Fall sem notast er við fyrir þegar ýtt er á takkan edit computer í forriti
 {
     string name = ui->input_Computer_Name->text().toStdString();
     string constr = ui->comboBox_constr->currentText().toStdString();
@@ -149,12 +149,12 @@ void editcomputer::on_button_edit_computer_dialog_clicked()
     this->done(0);*/
 
 
-void editcomputer::on_button_cancel_clicked()
+void editcomputer::on_button_cancel_clicked()//Fall sem notast er við þegar notandi ýtir á takkan cancel og hættir við uppfærslu á tölvu
 {
     this->done(0);
 }
 
-void editcomputer::on_comboBox_constr_activated(const QString &arg1)
+void editcomputer::on_comboBox_constr_activated(const QString &arg1)//Fall sem notast er við þegar velja á hvort tölva hafi verið byggð eða ekki
 {
     QVariant a = arg1;
     string constr = ui->comboBox_constr->currentText().toStdString();
@@ -170,7 +170,7 @@ void editcomputer::on_comboBox_constr_activated(const QString &arg1)
     }
 }
 
-bool editcomputer::checkInput(string input)
+bool editcomputer::checkInput(string input)//Fall sem athugar hvort strengur er tómur eða ekki (Villutékk)
 {
     bool allTrue = true;
 
