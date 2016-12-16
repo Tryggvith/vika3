@@ -61,7 +61,8 @@ void editcomputer::on_table_update_computer_clicked(const QModelIndex &index)
     ui->input_Computer_buildy->setText(Qbuildy);
     ui->input_Computer_Model->setText("");
     ui->input_Computer_Model->setText(Qbrand);
-
+    ui->comboBox_constr->currentText();
+    ui->comboBox_constr->setCurrentText(Qconstr);
 
 }
 

@@ -58,6 +58,7 @@ void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
 
     ui->input_Scientist_Name->setText("");
     ui->input_Scientist_Name->setText(Qname);
+    ui->comboBox_gender->setCurrentText(Qgender);
     ui->comboBox_gender->currentText();
     ui->input_Scientist_bYear->setText("");
     ui->input_Scientist_bYear->setText(QbYear);
