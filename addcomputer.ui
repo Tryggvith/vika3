@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Add computer</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="myresources.qrc">
+    <normaloff>:/icon/addComputer.png</normaloff>:/icon/addComputer.png</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QLabel" name="Label_Computer_Type">
@@ -105,6 +109,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="myresources.qrc"/>
+ </resources>
  <connections/>
 </ui>
