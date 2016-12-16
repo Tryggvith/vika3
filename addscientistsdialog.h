@@ -16,6 +16,7 @@ class AddScientistsDialog : public QDialog
 public:
     explicit AddScientistsDialog(QWidget *parent = 0);
     ~AddScientistsDialog();
+    bool checkInput(string input);
 
 private slots:
 

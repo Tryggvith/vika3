@@ -38,8 +38,17 @@ void AddComputer::on_Button_Add_Computer_clicked()
     if(name.empty() || buildy.empty())
     {
         ui->label_error->setText("<span style='color: red'>No fields can be empty!</span>");
-
+        therewasanError = true;
         return;
+    }
+
+    if(checkInput(name))
+    {
+        ui->name_error->setText("<span style='color: red'>Invalid input!</span>");
+        therewasanError = true;
+    }
+    else {
+          ui->name_error->setText("<span style='color: red'></span>");
     }
 
     int bvalue = atoi(buildy.c_str());
@@ -56,22 +65,46 @@ void AddComputer::on_Button_Add_Computer_clicked()
                 therewasanError = true;
             }
         }
-        if((bvalue < 0 || bvalue > 2016))
-        {
-            ui->label_error_buildy->setText("<span style='color: red'>Invalid input!</span>");
+    }
 
-            bvalue = atoi(buildy.c_str());
-            therewasanError = true;
+    if(bvalue < 0 || bvalue > 2016)
+    {
+         ui->label_error_buildy->setText("<span style='color: red'>Invalid input!</span>");
+
+          bvalue = atoi(buildy.c_str());
+          therewasanError = true;
+     }
+
+     if(therewasanError)
+     {
+        return;
+     }
+
+     if(!therewasanError)
+      {
+         _service.addComputer(name, buildy, type, constr);
+         this->done(0);
+      }
+}
+
+bool AddComputer::checkInput(string input)
+{
+    bool allTrue = true;
+    bool allFalse = true;
+
+    for(int i = 0; i < input.length(); i++)
+    {
+        if(input[i] == ' ')
+        {
+            allFalse = false;
+        }
+        else
+        {
+            allTrue = false;
         }
     }
 
-        if(therewasanError)
-        {
-            return;
-        }
-
-    _service.addComputer(name, buildy, type, constr);
-    this->done(0);
+    return allTrue;
 }
 
 void AddComputer::on_comboBox_constr_activated(const QString &arg1)

@@ -340,12 +340,16 @@ void DataAccess::updateScientist(QString name, QString gender, QString bYear, QS
     query.exec();
 }
 
-void DataAccess::updateComputer(string input, string id)
+void DataAccess::updateComputer(QString name, QString buildy, QString brand, QString constr, QString id)
 {
-    string str = "UPDATE FROM Computers SET " + input + " WHERE id = " + id;
-    QString qstr = QString::fromStdString(str);
     QSqlQuery query;
-    query.exec(qstr);
+    query.prepare("UPDATE Computers SET name=:name, buildy=:buildy, brand=:brand, constr=:constr WHERE id=:id ");
+    query.bindValue(":name", name);
+    query.bindValue(":buildy", buildy);
+    query.bindValue(":brand", brand);
+    query.bindValue(":constr", constr);
+    query.bindValue(":id", id);
+    query.exec();
 }
 
 vector<Performer> DataAccess::updateTable()
@@ -364,7 +368,30 @@ vector<Performer> DataAccess::updateTable()
         QString dYear = query.value(4).toString();
         QString nation = query.value(5).toString();
 
+
+
         Performer P(id, name, gender, bYear, dYear, nation);
+        sort.push_back(P);
+    }
+
+    return sort;
+}
+vector<computers> DataAccess::updateTableCpu()
+{
+    vector<computers> sort;
+    string str = "SELECT * FROM Computers";
+    QString qstr = QString::fromStdString(str);
+    QSqlQuery query;
+    query.exec(qstr);
+    while (query.next())
+    {
+        int id = query.value(0).toInt();
+        QString name = query.value(1).toString();
+        QString buildy = query.value(2).toString();
+        QString brand = query.value(3).toString();
+        QString constr = query.value(4).toString();
+
+        computers P(id, name, buildy, brand, constr);
         sort.push_back(P);
     }
 

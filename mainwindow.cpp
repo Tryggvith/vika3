@@ -18,10 +18,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_2->addItem("ASC");
     ui->comboBox_2->addItem("DESC");
 
-    ui->comboBox_filte_Computers->addItem("name");
-    ui->comboBox_filte_Computers->addItem("buildy");
-    ui->comboBox_filte_Computers->addItem("type");
-    ui->comboBox_filte_Computers->addItem("constr");
+    ui->comboBox_filte_Computers->addItem("Filter by computer name");
+    ui->comboBox_filte_Computers->addItem("Filter by year built");
+    ui->comboBox_filte_Computers->addItem("Filter by type of computer");
+    ui->comboBox_filte_Computers->addItem("Filter by if computer was ever built");
     ui->comboBox_3->addItem("ASC");
     ui->comboBox_3->addItem("DESC");
 
@@ -89,6 +89,23 @@ void MainWindow::displayStudents()
 void MainWindow::displayComputers()
 {
     string input = ui->comboBox_filte_Computers->currentText().toStdString();
+
+    if (input == "Filter by type of computer")
+    {
+        input = "brand";
+    }
+    else if (input == "Filter by computer name")
+    {
+        input = "name";
+    }
+    else if (input == "Filter by year computer was built")
+    {
+        input = "byear";
+    }
+    else if (input == "Filter by if computer was ever built")
+    {
+        input = "constr";
+    }
     string input2 = ui->comboBox_3->currentText().toStdString();
     string input3 = ui->line_input_Computer_name->text().toStdString();
     vector<computers> pf = _service.sortComputers(input, input2, input3);
@@ -249,9 +266,11 @@ void MainWindow::on_button_edit_scientist_clicked()
     displayStudents();
 }
 
-void MainWindow::on_button_Edit_Computer_clicked()
+void MainWindow::on_button_edit_computer_clicked()
 {
-
+    editcomputer EditComputer;
+    EditComputer.exec();
+    displayComputers();
 }
 
 void MainWindow::displayScientistsJoin(string id)
@@ -311,6 +330,10 @@ void MainWindow::on_table_View_join_Connections_clicked(const QModelIndex &index
 
 void MainWindow::on_button_remove_connection_clicked()
 {
+    int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected relations?");
+
+    if(reply == QMessageBox::Yes)
+    {
     int currentlySelectedConnectionIndex = ui->table_View_join_Connections->currentIndex().row();
 
     RelationsID currentlySelectedConnection = currentlyDisplayedConnections[currentlySelectedConnectionIndex];
@@ -318,6 +341,11 @@ void MainWindow::on_button_remove_connection_clicked()
     int id = currentlySelectedConnection.get_id();
     _service.removeJoin(id);
     displayAllJoin();
+    }
+    else
+    {
+        ui->button_remove_connection->setEnabled(false);
+    }
 }
 
 void MainWindow::on_button_add_connection_clicked()
