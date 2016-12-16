@@ -15,10 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_2->addItem("ASC");
     ui->comboBox_2->addItem("DESC");
 
-    ui->comboBox_filte_Computers->addItem("name");
-    ui->comboBox_filte_Computers->addItem("buildy");
-    ui->comboBox_filte_Computers->addItem("type");
-    ui->comboBox_filte_Computers->addItem("constr");
+    ui->comboBox_filte_Computers->addItem("Filter by computer name");
+    ui->comboBox_filte_Computers->addItem("Filter by year built");
+    ui->comboBox_filte_Computers->addItem("Filter by type of computer");
+    ui->comboBox_filte_Computers->addItem("Filter by if computer was ever built");
     ui->comboBox_3->addItem("ASC");
     ui->comboBox_3->addItem("DESC");
 
@@ -86,6 +86,23 @@ void MainWindow::displayStudents()
 void MainWindow::displayComputers()
 {
     string input = ui->comboBox_filte_Computers->currentText().toStdString();
+
+    if (input == "Filter by type of computer")
+    {
+        input = "brand";
+    }
+    else if (input == "Filter by computer name")
+    {
+        input = "name";
+    }
+    else if (input == "Filter by year computer was built")
+    {
+        input = "byear";
+    }
+    else if (input == "Filter by if computer was ever built")
+    {
+        input = "constr";
+    }
     string input2 = ui->comboBox_3->currentText().toStdString();
     string input3 = ui->line_input_Computer_name->text().toStdString();
     vector<computers> pf = _service.sortComputers(input, input2, input3);
