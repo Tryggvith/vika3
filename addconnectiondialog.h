@@ -16,6 +16,7 @@ class AddConnectionDialog : public QDialog
 public:
     explicit AddConnectionDialog(QWidget *parent = 0);
     ~AddConnectionDialog();
+    bool checkID(vector<RelationsTable2> info, QString ID);
 
 private slots:
     void on_pushButton_2_clicked();
