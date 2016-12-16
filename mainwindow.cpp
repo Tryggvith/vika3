@@ -288,7 +288,6 @@ void MainWindow::displayScientistsJoin(string id)
         ui->table_Scientists_Computer->setItem(row, 0, new QTableWidgetItem(sName));
         ui->table_Scientists_Computer->setItem(row, 1, new QTableWidgetItem(cName));
     }
-
 }
 
 void MainWindow::on_Input_Computer_id_textChanged(const QString &arg1)
