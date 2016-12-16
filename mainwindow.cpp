@@ -308,6 +308,10 @@ void MainWindow::on_table_View_join_Connections_clicked(const QModelIndex &index
 
 void MainWindow::on_button_remove_connection_clicked()
 {
+    int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected relations?");
+
+    if(reply == QMessageBox::Yes)
+    {
     int currentlySelectedConnectionIndex = ui->table_View_join_Connections->currentIndex().row();
 
     RelationsID currentlySelectedConnection = currentlyDisplayedConnections[currentlySelectedConnectionIndex];
@@ -315,6 +319,11 @@ void MainWindow::on_button_remove_connection_clicked()
     int id = currentlySelectedConnection.get_id();
     _service.removeJoin(id);
     displayAllJoin();
+    }
+    else
+    {
+        ui->button_remove_connection->setEnabled(false);
+    }
 }
 
 void MainWindow::on_button_add_connection_clicked()
