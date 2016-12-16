@@ -41,8 +41,49 @@ void AddConnectionDialog::displayTable()
 
 void AddConnectionDialog::on_pushButton_clicked()
 {
+    vector<RelationsTable2> pf = _service.viewScientist(1);
+    vector<RelationsTable2> cp = _service.viewScientist(2);
     QString sId = ui->input_Scientists_id->text();
     QString cId = ui->Input_Computers_id->text();
+    if(!checkID(pf,sId) && !checkID(cp, cId))
+    {
+        ui->label_error->setText("<span style='color: red'>Scientist ID and Computer ID not valid!</span>");
+    }
+    else if(!checkID(pf, sId))
+    {
+        ui->label_error->setText("<span style='color: red'>Scientist ID not valid!</span>");
+    }
+    else if(!checkID(cp, cId))
+    {
+        ui->label_error->setText("<span style='color: red'>Computer ID not valid!</span>");
+    }
+    else{
     _service.addRelations(sId, cId);
     this->done(0);
+    }
+}
+
+bool AddConnectionDialog::checkID(vector<RelationsTable2> info, QString ID)
+{
+    bool found = false;
+    bool found2 = false;
+    string choice = ID.toStdString();
+    int value;
+
+  //  do
+    //{
+        value = atoi(choice.c_str());
+        for(size_t i = 0; i < info.size(); i++)
+        {
+            //qDebug() << info[i].getSName() << " ";
+            //qDebug() << info[i].getSId();
+            if(info[i].getSId()== value)
+            {
+                found = true;
+                found2 = true;
+            }
+qDebug() << found2;
+        }
+    //}while(!found);
+    return found2;
 }

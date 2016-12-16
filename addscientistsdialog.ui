@@ -86,7 +86,7 @@
      <item>
       <widget class="QLabel" name="label_dYear">
        <property name="text">
-        <string>Death Year</string>
+        <string>Death Year or enter &quot;--&quot; if alive</string>
        </property>
       </widget>
      </item>
