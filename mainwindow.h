@@ -8,7 +8,10 @@
 #include <QtSql>
 #include "addcomputer.h"
 #include "editscientist.h"
+#include "editcomputer.h"
 #include "addconnectiondialog.h"
+#include "introdialog.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -54,7 +57,7 @@ private slots:
 
     void on_button_edit_scientist_clicked();
 
-    void on_button_Edit_Computer_clicked();
+    void on_button_edit_computer_clicked();
 
     void displayScientistsJoin(string id);
 
@@ -70,6 +73,7 @@ private slots:
 
     void on_button_add_connection_clicked();
 
+    void displayIntro();
 private:
     Ui::MainWindow *ui;
     PerformerService _service;
