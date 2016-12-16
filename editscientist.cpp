@@ -37,7 +37,7 @@ void editScientist::displayUpdateTable()
 
 }
 
-void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
+void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)//Fall tengist beint upplýsngum um tölvur svo hægt sé svo að breyta þeim
 {
     QVariant a = index;
     int currentlySelectedScientistIndex = ui->table_update_scientist->currentIndex().row();
@@ -75,7 +75,7 @@ void editScientist::on_table_update_scientist_clicked(const QModelIndex &index)
     ui->button_edit_scientist_dialog->setEnabled(true);
 }
 
-void editScientist::on_button_edit_scientist_dialog_clicked()
+void editScientist::on_button_edit_scientist_dialog_clicked()//Fall sem að tengist beint takka sem settur var í UI, þegar ýtt er á editscientist í forriti
 {
     string name = ui->input_Scientist_Name->text().toStdString();
     string gender = ui->comboBox_gender->currentText().toStdString();
@@ -228,12 +228,12 @@ void editScientist::on_button_edit_scientist_dialog_clicked()
         }
 }
 
-void editScientist::on_button_cancel_clicked()
+void editScientist::on_button_cancel_clicked()//Fall sem að tengist beint takka sem settur var í UI, þegar ýtt er á cancel í forriti
 {
     this->done(0);
 }
 
-bool editScientist::checkInput(string input)
+bool editScientist::checkInput(string input)//Fall sem hjálpar notanda við að setja inn réttar upplýsingar og annars skila út error (Svo ekki sé hægt að taka vid tómum strengjum t.d)
 {
     bool allTrue = true;
     for(unsigned int i = 0; i < input.length(); i++)
