@@ -10,7 +10,7 @@ class PerformerService
 public:
     PerformerService();
     void openFiles();//opnar sql files um leið og forritið er keyrt, einu sinni.
-    vector<Relations> startJoin(string CS, int id);
+    vector<Relations> startJoin(string CS, string id);
     vector<Performer> getPerformers(); //Nær í gögn úr skrá og skilar þeim í vector
     vector<Performer> searchpeople(QString name); //Leitar að ákveðnu nafni í listanum
     vector<computers> searchcomputer(QString name); //Leitar að ákveðnu nafni í listanum
@@ -23,7 +23,7 @@ public:
     string removeComputer(string name);
     void addPerformer(string name, string gender, string birth, string death, string nation); //Bætir nýjum tölvunarfræðingi inn í skrána
     void addComputer(string name, string buildy, string brand, string constr);
-    void addRelations(int sId, int cId);
+    void addRelations(QString sId, QString cId);
     void removeJoin(int id);
     void updateScientist(string name, string gender, string bYear, string dYear, string nation, string id);
     void updateComputer(string name, string buildy, string brand, string constr, string id);

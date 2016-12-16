@@ -44,12 +44,16 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
 
     for(int i = 0 ; i < namelength; i++)
     {
-        if(!(isalpha(name[i])))
+         if(!(isalpha(name[i])) && name[i] != ' ')
         {
             ui->label_error_name->setText("<span style='color: red'>Invalid input!</span>");
 
             therewasanError = true;
         }
+         else
+         {
+             ui->label_error_name->setText("<span style='color: red'></span>");
+         }
 
     }
 
@@ -76,22 +80,30 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
 
     int dvalue = atoi(dYear.c_str());
     int dYearLength = dYear.length();
-
-    for(int i = 0; i < dYearLength; i++)
+    if(dYear != "--")
     {
-        if(!isdigit(dYear[i]))
+        for(int i = 0; i < dYearLength; i++)
         {
-            ui->label_error_dyear->setText("<span style='color: red'>Invalid input!</span>");
-            dYearLength = dYear.length();
-            therewasanError = true;
+            if(!isdigit(dYear[i]))
+            {
+                ui->label_error_dyear->setText("<span style='color: red'>Invalid input!</span>");
+                dYearLength = dYear.length();
+                therewasanError = true;
+            }
         }
     }
+
         if(dvalue < 0 || dvalue > 2016)
         {
             ui->label_error_dyear->setText("<span style='color: red'>Invalid input!</span>");
 
             dvalue = atoi(dYear.c_str());
             therewasanError = true;
+        }
+
+        if(dvalue < bvalue && dYear != "--") {
+             ui->label_error_dyear->setText("<span style='color: red'>Death year can not be less than birth year!</span>");
+             therewasanError = true;
         }
 
     int nationlength = nation.length();
@@ -110,9 +122,6 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
     {
         return;
     }
-
-
-
 
     _service.addPerformer(name, gender, bYear, dYear, nation);
 

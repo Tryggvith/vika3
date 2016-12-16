@@ -47,7 +47,7 @@ void PerformerService::openFiles()
     _data.openSqlFiles();
 }
 
-vector<Relations> PerformerService::startJoin(string CS,int id)
+vector<Relations> PerformerService::startJoin(string CS, string id)
 {
     vector<Relations> join = _data.joinScientists(CS, id);
     return join;
@@ -69,7 +69,7 @@ vector<RelationsTable2> PerformerService::viewScientist(int counter)
     return pf;
 }
 
-void PerformerService::addRelations(int sId, int cId)
+void PerformerService::addRelations(QString sId, QString cId)
 {
     _data.addRelations(sId, cId);
 }

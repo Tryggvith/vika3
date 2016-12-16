@@ -17,7 +17,7 @@ public:
     void addCpu(string name, string buildy, string brand, string constr);
     void removeDataScientist(string name);//Þetta fall tekur út strenginn sem inniheldur ákveðið nafn
     void removeDataComputer(string name);
-    void addRelations(int sId, int cId);
+    void addRelations(QString sId, QString cId);
     void removeJoin(int id);
 
     void updateScientist(QString name, QString gender, QString bYear, QString dYear, QString nation, QString id);
@@ -26,7 +26,7 @@ public:
     vector<computers> updateTableCpu();
 
     vector<RelationsID> viewJoin();
-    vector<Relations> joinScientists(string CS, int id);
+    vector<Relations> joinScientists(string CS, string id);
     DataAccess();
     vector<Performer> searchScientist(QString name);
     vector<computers> searchComputer(QString name);
