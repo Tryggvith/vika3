@@ -42,21 +42,8 @@ void AddComputer::on_Button_Add_Computer_clicked()
         return;
     }
 
-    int namelength = name.length();
-
     bool founderrorname = false;
 
-    for(int i = 0 ; i < namelength; i++)
-    {
-        if(!(isalpha(name[i])) && name[i] != ' ')
-        {
-            founderrorname = true;
-        }
-    }
-    if(checkInput(name))
-    {
-        founderrorname = true;
-    }
     if(checkInput(name))
     {
         founderrorname = true;
