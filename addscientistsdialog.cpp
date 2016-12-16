@@ -54,7 +54,6 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
          {
              ui->label_error_name->setText("<span style='color: red'></span>");
          }
-
     }
 
     int bvalue = atoi(bYear.c_str());
@@ -68,7 +67,6 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
             bYearLength = bYear.length();
             therewasanError = true;
         }
-
     }
         if(bvalue < 0 || bvalue > 2016)
         {
@@ -103,7 +101,7 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
         }
 
         if(dvalue < bvalue && dYear != "--") {
-             ui->label_error_dyear->setText("<span style='color: red'>Death year can not be less than birth year!</span>");
+             ui->label_error_dyear->setText("<span style='color: red'>Invalid input!</span>");
              therewasanError = true;
         }
 

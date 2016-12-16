@@ -21,14 +21,14 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <widget class="QLabel" name="Label_Computer_Type">
+    <widget class="QLabel" name="Label_Computer_Name">
      <property name="text">
-      <string>Type</string>
+      <string>Name</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="Input_Computer_Type"/>
+    <widget class="QLineEdit" name="Input_Computer_Name"/>
    </item>
    <item>
     <widget class="QLabel" name="Label_Computer_Constr">
@@ -71,12 +71,12 @@
    <item>
     <widget class="QLabel" name="Label_Computer_Model">
      <property name="text">
-      <string>Model</string>
+      <string>Type</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="Input_Computer_Model"/>
+    <widget class="QComboBox" name="comboBox_type"/>
    </item>
    <item>
     <widget class="QLabel" name="label_error">
