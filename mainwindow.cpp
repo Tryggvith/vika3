@@ -7,11 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->combobox_filter_students->addItem("name");
-    ui->combobox_filter_students->addItem("gender");
-    ui->combobox_filter_students->addItem("bYear");
-    ui->combobox_filter_students->addItem("dYear");
-    ui->combobox_filter_students->addItem("nation");
+    ui->combobox_filter_students->addItem("Filter by name");
+    ui->combobox_filter_students->addItem("Filter by gender");
+    ui->combobox_filter_students->addItem("Filter by birth year");
+    ui->combobox_filter_students->addItem("Filter by death year");
+    ui->combobox_filter_students->addItem("Filter by nationality");
     ui->comboBox_2->addItem("ASC");
     ui->comboBox_2->addItem("DESC");
 
@@ -39,6 +39,26 @@ MainWindow::~MainWindow()
 void MainWindow::displayStudents()
 {
     string input = ui->combobox_filter_students->currentText().toStdString();
+    if (input == "Filter by birth year")
+    {
+        input = "bYear";
+    }
+    else if (input == "Filter by nationality")
+    {
+        input = "nation";
+    }
+    else if (input == "Filter by death year")
+    {
+        input = "dYear";
+    }
+    else if (input == "Filter by name")
+    {
+        input = "name";
+    }
+    else if (input == "Filter by gender")
+    {
+        input = "gender";
+    }
     string input2 = ui->comboBox_2->currentText().toStdString();
     string input3 = ui->input_scientist_search->text().toStdString();
     vector<Performer> pf = _service.sortScientists(input, input2, input3);
