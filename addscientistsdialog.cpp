@@ -30,15 +30,15 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
     string bYear = ui->input_Scientist_bYear->text().toStdString();
     string dYear = ui->input_Scientist_dYear->text().toStdString();
     string nation = ui->input_Scientist_Nation->text().toStdString();
+    bool therewasanError = false;
 
     if(name.empty() ||  bYear.empty() || dYear.empty() || nation.empty())
     {
         ui->label_error->setText("<span style='color: red'>No fields can be empty!</span>");
+        therewasanError = true;
 
         return;
     }
-
-    bool therewasanError = false;
 
     int namelength = name.length();
 
@@ -49,13 +49,23 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
             ui->label_error_name->setText("<span style='color: red'>Invalid input!</span>");
 
             therewasanError = true;
-        }         else
+        }
+         else
          {
              ui->label_error_name->setText("<span style='color: red'></span>");
-             therewasanError = false;
+         }
+    }
+
+         if(checkInput(name))
+         {
+             ui->label_error_name->setText("<span style='color: red'>Invalid input!</span>");
+             therewasanError = true;
+         }
+         else
+         {
+             ui->label_error_name->setText("<span style='color: red'></span>");
          }
 
-    }
 
     int bvalue = atoi(bYear.c_str());
     int bYearLength = bYear.length();
@@ -74,7 +84,6 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
         if(bvalue < 0 || bvalue > 2016)
         {
             ui->label_error_byear->setText("<span style='color: red'>Invalid input!</span>");
-
             bvalue = atoi(bYear.c_str());
             therewasanError = true;
         }
@@ -112,10 +121,9 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
 
     for(int i = 0 ; i < nationlength; i++)
     {
-        if(!(isalpha(nation[i])))
+        if(!(isalpha(nation[i])) && nation[i] != ' ')
         {
             ui->label_error_nation->setText("<span style='color: red'>Invalid input!</span>");
-
             therewasanError = true;
         }
         else
@@ -124,12 +132,44 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
         }
     }
 
+   if(checkInput(nation))
+    {
+        ui->label_error_nation->setText("<span style='color: red'>Invalid input!</span>");
+        therewasanError = true;
+    }
+    else
+    {
+        ui->label_error_nation->setText("<span style='color: red'></span>");
+
+    }
+
     if(therewasanError)
     {
         return;
     }
 
-    _service.addPerformer(name, gender, bYear, dYear, nation);
-
-    this->done(0);
+    if(!therewasanError)
+    {
+        _service.addPerformer(name, gender, bYear, dYear, nation);
+         this->done(0);
+    }
 }
+
+bool AddScientistsDialog::checkInput(string input)
+{
+    bool allTrue = true;
+    bool allFalse = true;
+    for(int i = 0; i < input.length(); i++)
+    {
+        if(input[i] == ' ')
+        {
+            allFalse = false;
+        }
+        else
+        {
+            allTrue = false;
+        }
+    }
+    return allTrue;
+}
+
