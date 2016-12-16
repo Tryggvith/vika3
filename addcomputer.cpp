@@ -42,15 +42,36 @@ void AddComputer::on_Button_Add_Computer_clicked()
         return;
     }
 
+    int namelength = name.length();
+
+    bool founderrorname = false;
+
+    for(int i = 0 ; i < namelength; i++)
+    {
+        if(!(isalpha(name[i])) && name[i] != ' ')
+        {
+            founderrorname = true;
+        }
+    }
     if(checkInput(name))
     {
-        ui->name_error->setText("<span style='color: red'>Invalid input!</span>");
-        therewasanError = true;
+        founderrorname = true;
     }
-    else {
-          ui->name_error->setText("<span style='color: red'></span>");
+    if(checkInput(name))
+    {
+        founderrorname = true;
+    }
+    if(founderrorname)
+    {
+         ui->name_error->setText("<span style='color: red'>Invalid input!</span>");
+         therewasanError = true;
+    }
+    else
+    {
+         ui->name_error->setText("<span style='color: red'></span>");
     }
 
+    bool founderrorbyear = false;
     int bvalue = atoi(buildy.c_str());
     int bYearLength = buildy.length();
 
@@ -60,20 +81,26 @@ void AddComputer::on_Button_Add_Computer_clicked()
         {
             if(!isdigit(buildy[i]))
             {
-                ui->label_error_buildy->setText("<span style='color: red'>Invalid input!</span>");
                 bYearLength = buildy.length();
-                therewasanError = true;
+                founderrorbyear = true;
             }
         }
     }
 
     if(bvalue < 0 || bvalue > 2016)
     {
-         ui->label_error_buildy->setText("<span style='color: red'>Invalid input!</span>");
-
           bvalue = atoi(buildy.c_str());
-          therewasanError = true;
+          founderrorbyear = true;
      }
+    if(founderrorbyear)
+    {
+        ui->label_error_buildy->setText("<span style='color: red'>Invalid input!</span>");
+        therewasanError = true;
+    }
+    else
+    {
+        ui->label_error_buildy->setText("<span style='color: red'></span>");
+    }
 
      if(therewasanError)
      {
