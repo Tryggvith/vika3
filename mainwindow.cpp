@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_3->addItem("DESC");
 
     _service.openFiles();
-    string id = " ";
+    string id = "";
     displayScientistsJoin(id);
     displayComputersJoin(id);
     displayAllJoin();
@@ -270,6 +270,7 @@ void MainWindow::on_button_edit_computer_clicked()
 {
     editcomputer EditComputer;
     EditComputer.exec();
+    ui->button_delete_computer->setEnabled(false);
     displayComputers();
 }
 
@@ -351,7 +352,7 @@ void MainWindow::on_button_add_connection_clicked()
 {
     AddConnectionDialog addConnectionDialog;
     addConnectionDialog.exec();
-    ui->button_remove_scientist->setEnabled(false);
+    ui->button_remove_connection->setEnabled(false);
     displayAllJoin();
 }
 

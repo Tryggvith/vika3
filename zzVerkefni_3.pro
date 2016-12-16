@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     editscientist.cpp \
     introdialog.cpp \
     editcomputer.cpp \
-    addconnectiondialog.cpp
+    addconnectiondialog.cpp \
+    creditsdialog.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -43,7 +44,8 @@ HEADERS  += mainwindow.h \
     editscientist.h \
     introdialog.h \
     editcomputer.h \
-    addconnectiondialog.h
+    addconnectiondialog.h \
+    creditsdialog.h
 
 
 FORMS    += mainwindow.ui \
@@ -52,7 +54,8 @@ FORMS    += mainwindow.ui \
     editscientist.ui \
     addconnectiondialog.ui \
     introdialog.ui \
-    editcomputer.ui
+    editcomputer.ui \
+    creditsdialog.ui
 
 RESOURCES += \
     myresources.qrc
