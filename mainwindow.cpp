@@ -39,7 +39,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::displayStudents()
+void MainWindow::displayStudents() // tökum input frá user og hendum því í fall sem er í Performerservice og fáum til baka vektor sem við setjum svo í töflu.
 {
     string input = ui->combobox_filter_students->currentText().toStdString();
     if (input == "Filter by birth year")
@@ -86,7 +86,7 @@ void MainWindow::displayStudents()
     currentlyDisplayedScientists = pf;
 }
 
-void MainWindow::displayComputers()
+void MainWindow::displayComputers() //tökum input frá user og hendum því í fall sem er í PerformerService og fáum til baka vektor sem við setjum svo í töflu.
 {
     string input = ui->comboBox_filte_Computers->currentText().toStdString();
 
@@ -129,42 +129,42 @@ void MainWindow::displayComputers()
     currentlyDisplayedComputers = pf;
 }
 
-void MainWindow::on_combobox_filter_students_activated()
+void MainWindow::on_combobox_filter_students_activated() //þegar skipt er um filter þá er displayFallið kallað.
 {
     displayStudents();
 }
 
-void MainWindow::on_comboBox_2_activated(const QString &arg1)
-{
-    QVariant a = arg1;
-    displayStudents();
-}
-
-void MainWindow::on_input_scientist_search_textChanged(const QString &arg1)
+void MainWindow::on_comboBox_2_activated(const QString &arg1) // Sama er gert með þetta combobox og gert var í fallinu að ofan.
 {
     QVariant a = arg1;
     displayStudents();
 }
 
-void MainWindow::on_line_input_Computer_name_textChanged(const QString &arg1)
+void MainWindow::on_input_scientist_search_textChanged(const QString &arg1) // þegar notandinn slær inn input þá er kallað á fallið.
+{
+    QVariant a = arg1;
+    displayStudents();
+}
+
+void MainWindow::on_line_input_Computer_name_textChanged(const QString &arg1) // sama er gert með þetta og gert er í fallinu að ofan.
 {
     QVariant a = arg1;
     displayComputers();
 }
 
-void MainWindow::on_comboBox_filte_Computers_activated(const QString &arg1)
+void MainWindow::on_comboBox_filte_Computers_activated(const QString &arg1) // þetta er það sama og gert er í Scientists.
 {
     QVariant a = arg1;
     displayComputers();
 }
 
-void MainWindow::on_comboBox_3_activated(const QString &arg1)
+void MainWindow::on_comboBox_3_activated(const QString &arg1) // þetta er það sama og gert er í Scientists.
 {
     QVariant a = arg1;
     displayComputers();
 }
 
-void MainWindow::on_button_Add_Scientists_clicked()
+void MainWindow::on_button_Add_Scientists_clicked() // Þegar ýtt er á takkann button_add_scientists lætur fallið opna nýjan UI glugga, þegar glugginn er hættur að keyra disablear hann takka og displayar nýja vísindamanninn sem var bætt við.
 {
     AddScientistsDialog addScientistsDialog;
     addScientistsDialog.exec();
@@ -172,13 +172,13 @@ void MainWindow::on_button_Add_Scientists_clicked()
     displayStudents();
 }
 
-void MainWindow::on_table_Students_clicked(const QModelIndex &index)
+void MainWindow::on_table_Students_clicked(const QModelIndex &index) // þegar ýtt er á nafn í töflunni enablear forritið takka.
 {
     QVariant a = index;
     ui->button_remove_scientist->setEnabled(true);
 }
 
-void MainWindow::on_button_remove_scientist_clicked()
+void MainWindow::on_button_remove_scientist_clicked() // þegar ýtt er á takkann remove Scientists spyr forritið hvort að notandinn vilji eyða og tekur það input sem notandinn velur ef það er yes þá eyðir forritið þeim vísindamanni sem er selected.
 {
     int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected scientist?");
 
@@ -202,7 +202,7 @@ void MainWindow::on_button_remove_scientist_clicked()
     }
 }
 
-void MainWindow::displayAllJoin()
+void MainWindow::displayAllJoin() // þetta fall sækir í fall í performerService og skilar vector, síðan er sýnt vectorinn i töflu.
 {
     vector<RelationsID> pf = _service.viewJoin();
     ui->table_View_join_Connections->clearContents();
@@ -221,13 +221,13 @@ void MainWindow::displayAllJoin()
     currentlyDisplayedConnections = pf;
 }
 
-void MainWindow::on_table_computers_clicked(const QModelIndex &index)
+void MainWindow::on_table_computers_clicked(const QModelIndex &index) // þegar ýtt er á nafn í töflunni enablear forritið takka
 {
-    QVariant a = index;
+     QVariant a = index;
      ui->button_delete_computer->setEnabled(true);
 }
 
-void MainWindow::on_button_delete_computer_clicked()
+void MainWindow::on_button_delete_computer_clicked() // þegar ýtt er á takkann remove Computer spyr forritið hvort að notandinn vilji eyða og tekur það input sem notandinn velur ef það er yes þá eyðir forritið þeirri tölvu sem er selected
 {
     int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected computer?");
 
@@ -248,7 +248,7 @@ void MainWindow::on_button_delete_computer_clicked()
     }
 }
 
-void MainWindow::on_button_add_computer_clicked()
+void MainWindow::on_button_add_computer_clicked() // þegar ýtt er á takkann add Computer þá keyrir forritið glugga, þegar forritið er hætt að keyra mun keyra disablear hann takka og displayar nýju tölvuna sem var bætt við
 {
     AddComputer addcomputer;
     addcomputer.exec();
@@ -256,9 +256,7 @@ void MainWindow::on_button_add_computer_clicked()
     displayComputers();
 }
 
-
-
-void MainWindow::on_button_edit_scientist_clicked()
+void MainWindow::on_button_edit_scientist_clicked() // þetta fall keyrir glugga og enablear takka og displayar table þegar keyrslu er hætt.
 {
     editScientist EditScientist;
     EditScientist.exec();
@@ -266,7 +264,7 @@ void MainWindow::on_button_edit_scientist_clicked()
     displayStudents();
 }
 
-void MainWindow::on_button_edit_computer_clicked()
+void MainWindow::on_button_edit_computer_clicked() // þetta fall keyrir glugga og enablear takka og displayar table þegar keyrslu er hætt.
 {
     editcomputer EditComputer;
     EditComputer.exec();
@@ -274,7 +272,7 @@ void MainWindow::on_button_edit_computer_clicked()
     displayComputers();
 }
 
-void MainWindow::displayScientistsJoin(string id)
+void MainWindow::displayScientistsJoin(string id) // þetta fall skilar id og CS og fær til baka vector, sem svo sýnir vectorinn á töflu.
 {
     string CS = "s.name";
     vector<Relations> pf = _service.startJoin(CS, id);
@@ -291,21 +289,21 @@ void MainWindow::displayScientistsJoin(string id)
     }
 }
 
-void MainWindow::on_Input_Computer_id_textChanged(const QString &arg1)
+void MainWindow::on_Input_Computer_id_textChanged(const QString &arg1) // þegar texta er breytt mun hann taka þann streng og setja í annað fall og lætur það fall keyra.
 {
     QVariant a = arg1;
     string id = ui->Input_Computer_id->text().toStdString();
     displayComputersJoin(id);
 }
 
-void MainWindow::on_input_Scientists_id_textChanged(const QString &arg1)
+void MainWindow::on_input_Scientists_id_textChanged(const QString &arg1) // þegar texta er breytt mun hann taka þann streng og setja í annað fall og lætur það fall keyra.
 {
     QVariant a = arg1;
     string id = ui->input_Scientists_id->text().toStdString();
     displayScientistsJoin(id);
 }
 
-void MainWindow::displayComputersJoin(string id)
+void MainWindow::displayComputersJoin(string id) // þetta fall skilar id og CS og fær til baka vector, sem svo sýnir vectorinn á töflu.
 {
     string CS = "C.name";
     vector<Relations> pf = _service.startJoin(CS, id);
@@ -322,13 +320,13 @@ void MainWindow::displayComputersJoin(string id)
     }
 }
 
-void MainWindow::on_table_View_join_Connections_clicked(const QModelIndex &index)
+void MainWindow::on_table_View_join_Connections_clicked(const QModelIndex &index) // þegar ýtt er á tengingu í töflu þá virkjast takki.
 {
     QVariant a = index;
     ui->button_remove_connection->setEnabled(true);
 }
 
-void MainWindow::on_button_remove_connection_clicked()
+void MainWindow::on_button_remove_connection_clicked() // þegar ýtt er á remove Connection er spurt notendann hvort að hann vilji eyða eða ekki og ef það er yes þá mun hann eyða tengingunni.
 {
     int reply = QMessageBox::question(this, "Warning", "Are you sure you want to delete the selected relations?");
 
@@ -348,7 +346,7 @@ void MainWindow::on_button_remove_connection_clicked()
     }
 }
 
-void MainWindow::on_button_add_connection_clicked()
+void MainWindow::on_button_add_connection_clicked() // þetta fall lætur keyra glugga og svo disablear það takka og keyrir fall sem sýnir töflu.
 {
     AddConnectionDialog addConnectionDialog;
     addConnectionDialog.exec();
@@ -356,13 +354,13 @@ void MainWindow::on_button_add_connection_clicked()
     displayAllJoin();
 }
 
-void MainWindow::displayIntro()
+void MainWindow::displayIntro() // þetta fall er keyrt áður en MainWindow er keyrt, notað sem intro!
 {
     IntroDialog introDialog;
     introDialog.exec();
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_clicked() // fall sem endar forittið þegar ýtt er á þennan takka!
 {
     this->close();
 }
