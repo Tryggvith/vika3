@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Add computer</string>
+   <string>Add new computer</string>
   </property>
   <property name="windowIcon">
    <iconset resource="myresources.qrc">
@@ -65,7 +65,7 @@
    <item>
     <widget class="QLineEdit" name="Input_Computer_Year">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="text">
       <string/>
@@ -94,7 +94,7 @@
      <item>
       <widget class="QPushButton" name="Button_Add_Computer">
        <property name="text">
-        <string>Submit</string>
+        <string>Save</string>
        </property>
       </widget>
      </item>
