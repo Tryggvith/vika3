@@ -232,7 +232,7 @@ void MainWindow::on_button_add_computer_clicked()
 {
     AddComputer addcomputer;
     addcomputer.exec();
-    ui->button_remove_scientist->setEnabled(false);
+    ui->button_delete_computer->setEnabled(false);
     displayComputers();
 }
 
@@ -302,6 +302,7 @@ void MainWindow::displayComputersJoin(string id)
 
 void MainWindow::on_table_View_join_Connections_clicked(const QModelIndex &index)
 {
+    QVariant a = index;
     ui->button_remove_connection->setEnabled(true);
 }
 
