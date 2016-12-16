@@ -21,7 +21,7 @@ void AddScientistsDialog::on_button_cancel_Scientist_dialog_clicked()
     this->done(0);
 }
 
-void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
+void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()//Sækir input frá user sem er sent áfram í performerservice sem fer síðan í dataaccess
 {
     ui->label_error->setText("");
 
@@ -67,7 +67,7 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
 
 
     bool founderrorbyear = false;
-    int bvalue = atoi(bYear.c_str());
+    int bvalue = atoi(bYear.c_str());//streng breytt í int
     int bYearLength = bYear.length();
 
     for(int i = 0; i < bYearLength; i++)
@@ -82,7 +82,7 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
         if(bvalue < 0 || bvalue > 2016)
         {
 
-            bvalue = atoi(bYear.c_str());
+            bvalue = atoi(bYear.c_str());//streng breytt í int
             founderrorbyear = true;
         }
 
@@ -98,7 +98,7 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
 
 
     bool founderrordyear = false;
-    int dvalue = atoi(dYear.c_str());
+    int dvalue = atoi(dYear.c_str());//streng breytt í int
     int dYearLength = dYear.length();
     if(dYear != "--")
     {
@@ -169,7 +169,7 @@ void AddScientistsDialog::on_button_add_Scientist_dialog_clicked()
     }
 }
 
-bool AddScientistsDialog::checkInput(string input)
+bool AddScientistsDialog::checkInput(string input)//Athugar hvort input sé tómt.
 {
     bool allTrue = true;
     for(unsigned int i = 0; i < input.length(); i++)
