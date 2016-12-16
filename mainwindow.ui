@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>The computer Science history database</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="myresources.qrc">
+    <normaloff>:/icon/monitor.png</normaloff>:/icon/monitor.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -116,7 +120,7 @@
            <bool>true</bool>
           </property>
           <property name="text">
-           <string>Edit scientist</string>
+           <string>Edit scientist information</string>
           </property>
          </widget>
         </item>
@@ -195,7 +199,7 @@
         <item>
          <widget class="QPushButton" name="button_Edit_Computer">
           <property name="text">
-           <string>Edit Computer</string>
+           <string>Edit Computer informations</string>
           </property>
          </widget>
         </item>
@@ -211,7 +215,7 @@
           <item>
            <widget class="QTabWidget" name="tabWidget_2">
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="Scientists_Computer">
              <attribute name="title">
@@ -272,7 +276,7 @@
             </widget>
             <widget class="QWidget" name="viewallconnections">
              <attribute name="title">
-              <string>View All Connections</string>
+              <string>View all relations</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
@@ -302,7 +306,7 @@
                 <item>
                  <widget class="QPushButton" name="button_add_connection">
                   <property name="text">
-                   <string>Add Connection</string>
+                   <string>Add relation</string>
                   </property>
                  </widget>
                 </item>
@@ -312,7 +316,7 @@
                    <bool>false</bool>
                   </property>
                   <property name="text">
-                   <string>Remove Connection</string>
+                   <string>Remove relation</string>
                   </property>
                  </widget>
                 </item>
@@ -350,7 +354,7 @@
      <x>0</x>
      <y>0</y>
      <width>631</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -365,6 +369,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="myresources.qrc"/>
+ </resources>
  <connections/>
 </ui>
