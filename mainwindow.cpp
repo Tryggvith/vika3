@@ -128,6 +128,7 @@ void MainWindow::on_button_Add_Scientists_clicked()
 {
     AddScientistsDialog addScientistsDialog;
     addScientistsDialog.exec();
+    ui->button_remove_scientist->setEnabled(false);
     displayStudents();
 }
 
@@ -135,7 +136,6 @@ void MainWindow::on_table_Students_clicked(const QModelIndex &index)
 {
     QVariant a = index;
     ui->button_remove_scientist->setEnabled(true);
-    ui->button_edit_scientist->setEnabled(true);
 }
 
 void MainWindow::on_button_remove_scientist_clicked()
@@ -153,6 +153,7 @@ void MainWindow::on_button_remove_scientist_clicked()
         string name = currentlySelectedScientist.getName().toStdString();
         ui->label_test->setText(currentlySelectedScientist.getName()+ " was deleted!");
         _service.removeScientist(name);
+        ui->button_remove_scientist->setEnabled(false);
         displayStudents();
     }
     else
@@ -211,6 +212,7 @@ void MainWindow::on_button_add_computer_clicked()
 {
     AddComputer addcomputer;
     addcomputer.exec();
+    ui->button_remove_scientist->setEnabled(false);
     displayComputers();
 }
 
@@ -220,6 +222,7 @@ void MainWindow::on_button_edit_scientist_clicked()
 {
     editScientist EditScientist;
     EditScientist.exec();
+    ui->button_remove_scientist->setEnabled(false);
     displayStudents();
 }
 
@@ -297,5 +300,6 @@ void MainWindow::on_button_add_connection_clicked()
 {
     AddConnectionDialog addConnectionDialog;
     addConnectionDialog.exec();
+    ui->button_remove_scientist->setEnabled(false);
     displayAllJoin();
 }

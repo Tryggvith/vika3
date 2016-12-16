@@ -31,6 +31,7 @@ void AddComputer::on_Button_Add_Computer_clicked()
 
     bool therewasanError = false;
 
+
     if(name.empty() || brand.empty() || buildy.empty())
     {
         ui->label_error->setText("<span style='color: red'>No fields can be empty!</span>");
@@ -65,4 +66,18 @@ void AddComputer::on_Button_Add_Computer_clicked()
 
     _service.addComputer(name, buildy, brand, constr);
     this->done(0);
+}
+
+void AddComputer::on_comboBox_constr_activated(const QString &arg1)
+{
+    string constr = ui->comboBox_constr->currentText().toStdString();
+    if(constr == "Yes")
+    {
+        ui->Input_Computer_Year->setEnabled(true);
+    }
+    else
+    {
+        ui->Input_Computer_Year->setEnabled(false);
+        ui->Input_Computer_Year->setText("--");
+    }
 }
