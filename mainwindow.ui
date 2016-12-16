@@ -25,7 +25,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Scientists">
        <attribute name="title">
@@ -180,7 +180,7 @@
           <item>
            <widget class="QPushButton" name="button_add_computer">
             <property name="text">
-             <string>Save</string>
+             <string>Add new computer</string>
             </property>
            </widget>
           </item>
@@ -306,7 +306,7 @@
                 <item>
                  <widget class="QPushButton" name="button_add_connection">
                   <property name="text">
-                   <string>Add relation</string>
+                   <string>Add new relation</string>
                   </property>
                  </widget>
                 </item>
