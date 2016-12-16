@@ -44,6 +44,7 @@ void editcomputer::displayUpdateTable()
 
 void editcomputer::on_table_update_computer_clicked(const QModelIndex &index)
 {
+    QVariant a = index;
     int currentlySelectedComputerIndex = ui->table_update_computer->currentIndex().row();
     computers currentlySelectedComputer = currentlyDisplayedComputers[currentlySelectedComputerIndex];
 
@@ -172,13 +173,12 @@ void editcomputer::on_comboBox_constr_activated(const QString &arg1)
 bool editcomputer::checkInput(string input)
 {
     bool allTrue = true;
-    bool allFalse = true;
 
-    for(int i = 0; i < input.length(); i++)
+    for(unsigned int i = 0; i < input.length(); i++)
     {
         if(input[i] == ' ')
         {
-            allFalse = false;
+            allTrue = false;
         }
         else
         {

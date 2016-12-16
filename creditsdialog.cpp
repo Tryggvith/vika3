@@ -12,3 +12,8 @@ CreditsDialog::~CreditsDialog()
 {
     delete ui;
 }
+
+void CreditsDialog::on_pushButton_clicked()
+{
+    this->done(0);
+}

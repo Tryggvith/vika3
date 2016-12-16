@@ -74,6 +74,8 @@ private slots:
     void on_button_add_connection_clicked();
 
     void displayIntro();
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     PerformerService _service;

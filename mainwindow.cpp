@@ -361,3 +361,8 @@ void MainWindow::displayIntro()
     IntroDialog introDialog;
     introDialog.exec();
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    this->close();
+}
