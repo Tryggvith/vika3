@@ -65,7 +65,7 @@
    <item>
     <widget class="QLineEdit" name="Input_Computer_Year">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="text">
       <string/>
